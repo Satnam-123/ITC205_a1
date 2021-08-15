@@ -87,16 +87,20 @@ public class Library implements Serializable {
 	public int gEt_BoOkId() {
 		return bOoK_Id;
 	}
-	
+
 	
 	public int gEt_MeMbEr_Id() {
 		return mEmBeR_Id;
 	}
+	   
+
 	
 	
 	private int gEt_NeXt_BoOk_Id() {
 		return bOoK_Id++;
 	}
+	
+
 
 	
 	private int gEt_NeXt_MeMbEr_Id() {
@@ -156,6 +160,7 @@ public class Library implements Serializable {
 		return lOaNlImIt;
 	}
 
+	
 	
 	public boolean cAn_MeMbEr_BoRrOw(Member member) {		
 		if (member.gEt_nUmBeR_Of_CuRrEnT_LoAnS() == lOaNlImIt ) 
