@@ -84,20 +84,15 @@ public class Library implements Serializable {
 	}
 
 	
-	/*public int gEt_BoOkId() {
+	public int gEt_BoOkId() {
 		return bOoK_Id;
-	}*/
-	public int getbOoK_Id() { // Changed gEt_BoOkId() to getbOoK_Id() because gEt is misplled
-        return bOoK_Id;
-    }
+	}
 
 	
-	/*public int gEt_MeMbEr_Id() {
+	public int gEt_MeMbEr_Id() {
 		return mEmBeR_Id;
-	}*/
-	    public int getmEmBeR_Id() {// Changed gEt_MeMbEr_Id() to getmEmBeR_Id() because gEt is misplled
-        return mEmBeR_Id;
-    }
+	}
+	   
 
 	
 	
@@ -161,13 +156,10 @@ public class Library implements Serializable {
 	}
 
 	
-	/*public int gEt_LoAn_LiMiT() {
-		return lOaNlImIt;
-	}*/
-
-	public int getlOaNlImIt() {//// Changed gEt_LoAn_LiMiT() to getlOaNlImIt() because gEt is misplled
+	public int gEt_LoAn_LiMiT() {
 		return lOaNlImIt;
 	}
+
 	
 	
 	public boolean cAn_MeMbEr_BoRrOw(Member member) {		
