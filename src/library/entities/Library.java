@@ -38,7 +38,7 @@ public class Library implements Serializable {
 	private Date lOaN_DaTe; // Changed 'lOaN_DaTe' to 'loanDate'
 
 	
-	private Map<Integer, Book> CaTaLoG;   // changed 'CaTaLoG' to 'Catalog'
+	private Map<Integer, Book> CaTaLoG;   // changed 'CaTaLoG' to 'catalog'
 	private Map<Integer, Member> MeMbErS;
 	private Map<Integer, Loan> LoAnS;
 	private Map<Integer, Loan> CuRrEnT_LoAnS;
