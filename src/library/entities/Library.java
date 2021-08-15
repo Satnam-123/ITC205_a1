@@ -24,17 +24,25 @@ public class Library implements Serializable {
 	private static final double maxFinesOwed = 1.0;
 	private static final double damageFee = 2.0;
 	
-	private static Library SeLf;
-	private int bOoK_Id;
-	private int mEmBeR_Id;
-	private int lOaN_Id;
-	private Date lOaN_DaTe;
+
+	private static Library seLf; 
+	private int bookId; 
+	private int memberId; 
+	private int loanId; 
+	private Date loanDate;
+  
+	private static Library seLf; // Changed 'Self' to 'self'
+	private int bookId; // Changed 'bOoK_Id' to 'bookId'
+	private int memberId; // Changed 'mEmBeR_Id' to 'memberId'
+	private int loanId; // Changed 'lOaN_Id' to 'loanId'
+	private Date loanDate; // Changed 'lOaN_DaTe' to 'loanDate'
+
 	
-	private Map<Integer, Book> CaTaLoG;
-	private Map<Integer, Member> MeMbErS;
-	private Map<Integer, Loan> LoAnS;
-	private Map<Integer, Loan> CuRrEnT_LoAnS;
-	private Map<Integer, Book> DaMaGeD_BoOkS;
+	private Map<Integer, Book> catalog;   // changed 'CaTaLoG' to 'catalog'
+	private Map<Integer, Member> members;  // changed 'MeMbErS to 'members'
+	private Map<Integer, Loan> loans;   // changed 'LoAnS' 'to loans' 
+	private Map<Integer, Loan>currentloans;  //changed 'CuRrEnT_LoAnS' to 'currentloans' 
+	private Map<Integer, Book> damagedbooks;   //changes 'DaMaGeD_BoOkS' to 'damagedbooks'
 	
 
 	private Library() {
@@ -87,16 +95,20 @@ public class Library implements Serializable {
 	public int gEt_BoOkId() {
 		return bOoK_Id;
 	}
-	
+
 	
 	public int gEt_MeMbEr_Id() {
 		return mEmBeR_Id;
 	}
+	   
+
 	
 	
 	private int gEt_NeXt_BoOk_Id() {
 		return bOoK_Id++;
 	}
+	
+
 
 	
 	private int gEt_NeXt_MeMbEr_Id() {
@@ -156,6 +168,7 @@ public class Library implements Serializable {
 		return lOaNlImIt;
 	}
 
+	
 	
 	public boolean cAn_MeMbEr_BoRrOw(Member member) {		
 		if (member.gEt_nUmBeR_Of_CuRrEnT_LoAnS() == lOaNlImIt ) 
