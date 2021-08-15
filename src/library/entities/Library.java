@@ -32,17 +32,17 @@ public class Library implements Serializable {
 	private Date loanDate;
   
 	private static Library seLf; // Changed 'Self' to 'self'
-	private int bOoK_Id; // Changed 'bOoK_Id' to 'bookId'
-	private int mEmBeR_Id; // Changed 'mEmBeR_Id' to 'memberId'
-	private int lOaN_Id; // Changed 'lOaN_Id' to 'loanId'
-	private Date lOaN_DaTe; // Changed 'lOaN_DaTe' to 'loanDate'
+	private int bookId; // Changed 'bOoK_Id' to 'bookId'
+	private int memberId; // Changed 'mEmBeR_Id' to 'memberId'
+	private int loanId; // Changed 'lOaN_Id' to 'loanId'
+	private Date loanDate; // Changed 'lOaN_DaTe' to 'loanDate'
 
 	
-	private Map<Integer, Book> CaTaLoG;   // changed 'CaTaLoG' to 'catalog'
-	private Map<Integer, Member> MeMbErS;  // changed 'MeMbErS to 'members'
-	private Map<Integer, Loan> LoAnS;
-	private Map<Integer, Loan> CuRrEnT_LoAnS;
-	private Map<Integer, Book> DaMaGeD_BoOkS;
+	private Map<Integer, Book> catalog;   // changed 'CaTaLoG' to 'catalog'
+	private Map<Integer, Member> members;  // changed 'MeMbErS to 'members'
+	private Map<Integer, Loan> loans;   // changed 'LoAnS' 'to loans' 
+	private Map<Integer, Loan>currentloans;  //changed 'CuRrEnT_LoAnS' to 'currentloans' 
+	private Map<Integer, Book> damagedbooks;   //changes 'DaMaGeD_BoOkS' to 'damagedbooks'
 	
 
 	private Library() {
