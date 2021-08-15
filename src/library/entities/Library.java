@@ -24,11 +24,19 @@ public class Library implements Serializable {
 	private static final double maxFinesOwed = 1.0;
 	private static final double damageFee = 2.0;
 	
+
 	private static Library seLf; 
 	private int bookId; 
 	private int memberId; 
 	private int loanId; 
-	private Date loanDate; 
+	private Date loanDate;
+  
+	private static Library seLf; // Changed 'Self' to 'self'
+	private int bOoK_Id; // Changed 'bOoK_Id' to 'bookId'
+	private int mEmBeR_Id; // Changed 'mEmBeR_Id' to 'memberId'
+	private int lOaN_Id; // Changed 'lOaN_Id' to 'loanId'
+	private Date lOaN_DaTe; // Changed 'lOaN_DaTe' to 'loanDate'
+
 	
 	private Map<Integer, Book> CaTaLoG;   // changed 'CaTaLoG' to 'Catalog'
 	private Map<Integer, Member> MeMbErS;
