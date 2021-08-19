@@ -127,59 +127,59 @@ public class Library implements Serializable {
 	}
 
 
-	public List<Book> lIsT_BoOkS() {		
-		return new ArrayList<Book>(CaTaLoG.values()); 
+	public List<Book>  listBooks() {//Changed lIsT_BoOkS() to listBooks()			
+		return new ArrayList<Book>( catalog .values());//Changed CaTaLoG to catalog 
 	}
 
 
-	public List<Loan> lISt_CuRrEnT_LoAnS() {
-		return new ArrayList<Loan>(CuRrEnT_LoAnS.values());
+	public List<Loan> listCurrentLoans() { //Changed lISt_CuRrEnT_LoAnS() to listCurrentLoans()
+		return new ArrayList<Loan>listCurrentLoans() { //Changed lISt_CuRrEnT_LoAnS() to listCurrentLoans()}
 	}
 
 
-	public Member aDd_MeMbEr(String lastName, String firstName, String email, int phoneNo) {		
-		Member member = new Member(lastName, firstName, email, phoneNo, gEt_NeXt_MeMbEr_Id());
-		MeMbErS.put(member.GeT_ID(), member);		
+	public Member addMember(String lastName, String firstName, String email, int phoneNo) { //changed aDd_MeMbEr to addMember		
+		Member member = new Member(lastName, firstName, email, phoneNo, getNextMemberId()); // changed gEt_NeXt_MeMbEr_Id to getNextMemberId()
+		member.put(member.getId(), member);	//Changed GeT_ID to getId()	MeMbErS to member
 		return member;
 	}
 
 	
-	public Book aDd_BoOk(String a, String t, String c) {		
-		Book b = new Book(a, t, c, gEt_NeXt_BoOk_Id());
-		CaTaLoG.put(b.gEtId(), b);		
+	public Book addBook(String a, String t, String c) {//Changed aDd_BoOk	to addBook	
+		Book b = new Book(a, t, c, getNextBookId());//changed gEt_NeXt_BoOk_Id to getNextBookId
+		catalog.put(b.getId(), b);	//changed CaTaLoG to catalog and changed gEtId	to getId
 		return b;
 	}
 
 	
-	public Member gEt_MeMbEr(int memberId) {
-		if (MeMbErS.containsKey(memberId)) 
-			return MeMbErS.get(memberId);
+	public Member getMember(int memberId) {// changed gEt_MeMbEr to getMember
+		if (members.containsKey(memberId)) //changed MeMbErS to members
+			return members.get(memberId);//changed MeMbErS to members
 		return null;
 	}
 
 	
-	public Book gEt_BoOk(int bookId) {
-		if (CaTaLoG.containsKey(bookId)) 
-			return CaTaLoG.get(bookId);		
+	public Book getBook(int bookId) {// changed gEt_BoOk to getBook
+		if (catalog.containsKey(bookId)) // changed CaTaLoG to catalog
+			return catalog.get(bookId);		// changed CaTaLoG to catalog
 		return null;
 	}
 
 	
-	public int gEt_LoAn_LiMiT() {
-		return lOaNlImIt;
+	public int getLoanLimit() {// changed gEt_LoAn_LiMiT to getLoanLimit
+		return lOaNlImIt;// Changed lOaNlImIt to loanLimit
 	}
 
 	
 	
-	public boolean cAn_MeMbEr_BoRrOw(Member member) {		
-		if (member.gEt_nUmBeR_Of_CuRrEnT_LoAnS() == lOaNlImIt ) 
+	public boolean canMemberBorrow(Member member) {// changed cAn_MeMbEr_BoRrOw to canMemberBorrow		
+		if (member.gEt_nUmBeR_Of_CuRrEnT_LoAnS() == lOaNlImIt ) // changed gEt_nUmBeR_Of_CuRrEnT_LoAnS to getNumberOfCurrentLoans and lOaNlImIt to loanLimit
 			return false;
 				
-		if (member.FiNeS_OwEd() >= maxFinesOwed) 
+		if (member.finesOwed() >= maxFinesOwed) // changed FiNeS_OwEd to finesOwed
 			return false;
 				
-		for (Loan loan : member.GeT_LoAnS()) 
-			if (loan.Is_OvEr_DuE()) 
+		for (Loan loan : member.getLoans()) // changed GeT_LoAnS to getLoans
+			if (loan.isOverDue()) // changed Is_OvEr_DuE to isOverDue
 				return false;
 			
 		return true;
