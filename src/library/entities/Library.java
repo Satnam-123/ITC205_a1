@@ -209,33 +209,32 @@ public class Library implements Serializable {
 	}
 
 	
-	public double CaLcUlAtE_OvEr_DuE_FiNe(Loan LoAn) {
-		if (LoAn.Is_OvEr_DuE()) {
-			long DaYs_OvEr_DuE = Calendar.gEtInStAnCe().GeT_DaYs_DiFfErEnCe(LoAn.GeT_DuE_DaTe());
-			double fInE = DaYs_OvEr_DuE * FiNe_PeR_DaY;
-			return fInE;
+	public double calculateOverDueFine(Loan loan) {// changed CaLcUlAtE_OvEr_DuE_FiNe to calculateOverDueFine and LoAn to loan
+		if (LoAn.isOverDue()) {//changed LoAn to loan and Is_OvEr_DuE to isOverDue
+			long daysOverDue = Calendar.getInstance().getDaysDifference(loan.getDueDate());// Changed DaYs_OvEr_DuE to daysOverDue, gEtInStAnCe to getInstance, GeT_DaYs_DiFfErEnCe to getDaysDifference, LoAn to loan, GeT_DuE_DaTe to getDueDate
+			double fine = daysOverDue * finePerDay;// changed fInE to fine, DaYs_OvEr_DuE to daysOverDue, FiNe_PeR_DaY to finePerDay
+			return fine;//changed fInE to fine
 		}
-		return 0.0;		
+		return 0.0;	
 	}
 
 
-	public void DiScHaRgE_LoAn(Loan cUrReNt_LoAn, boolean iS_dAmAgEd) {
-		Member mEmBeR = cUrReNt_LoAn.GeT_MeMbEr();
-		Book bOoK  = cUrReNt_LoAn.GeT_BoOk();
+	public void dischargeLoan(Loan currentLoan, boolean isDamaged) {//changed DiScHaRgE_LoAn to dischargeLoan, cUrReNt_LoAn to currentLoan, iS_dAmAgEd to isDamaged
+		Member member = currentLoan.getMember();// changed mEmBeR to member, cUrReNt_LoAn to currentLoan, GeT_MeMbEr to getMember
+		Book book  = currentLoan.getBook();//changed bOoK to book, cUrReNt_LoAn to currentLoan, GeT_BoOk to getBook
 		
-		double oVeR_DuE_FiNe = CaLcUlAtE_OvEr_DuE_FiNe(cUrReNt_LoAn);
-		mEmBeR.AdD_FiNe(oVeR_DuE_FiNe);	
+		double overDueFine = calculateOverDueFine(currentLoan);// changed oVeR_DuE_FiNe to overDueFine, CaLcUlAtE_OvEr_DuE_FiNe to calculateOverDueFine, cUrReNt_LoAn TO currentLoan
+		member.addFine(overDueFine);	// changed mEmBeR to member, AdD_FiNe to addFine and oVeR_DuE_FiNe to OverDueFine
 		
-		mEmBeR.dIsChArGeLoAn(cUrReNt_LoAn);
-		bOoK.ReTuRn(iS_dAmAgEd);
-		if (iS_dAmAgEd) {
-			mEmBeR.AdD_FiNe(damageFee);
-			DaMaGeD_BoOkS.put(bOoK.gEtId(), bOoK);
+		member.dischargeLoan(currentLoan);// changed mEmBeR to member, dIsChArGeLoAn to dischargeLoan, cUrReNt_LoAn to currentLoan
+		book.Return(isDamaged);//changed bOoK to book, ReTuRn to Return , iS_dAmAgEd to isDamaged
+		if (isDamaged) {// changed iS_dAmAgEd to isDamaged
+			member.addFine(damageFee);//changed mEmBeR to member, AdD_FiNe to addFine
+			damagedBooks.put(book.getId(), book);// Changed bOoK to book, gEtId to getId
 		}
-		cUrReNt_LoAn.DiScHaRgE();
-		CuRrEnT_LoAnS.remove(bOoK.gEtId());
+		currentLoan.discharge();// changed cUrReNt_LoAn to currentLoan, DiScHaRgE to discharge
+		currentLoan.remove(book.getId()); // changed cUrReNt_LoAn to currentLoan, bOoK to book, gEtId to getId
 	}
-
 
 	public void cHeCk_CuRrEnT_LoAnS() {
 		for (Loan lOaN : CuRrEnT_LoAnS.values()) 
