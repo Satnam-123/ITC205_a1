@@ -186,25 +186,24 @@ public class Library implements Serializable {
 	}
 
 	
-	public int gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(Member MeMbEr) {		
-		return lOaNlImIt - MeMbEr.gEt_nUmBeR_Of_CuRrEnT_LoAnS();
+	public int getNumberOfLoansRemainingForMember(Member member) {//changed gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr to getNumberOfLoansRemainingForMember	and MeMbEr TO member	
+		return loanLimit - member.getNumberOfCurrentLoans(); // changed lOaNlImIt to loanLimit and MeMbEr to member and gEt_nUmBeR_Of_CuRrEnT_LoAnS to getNumberOfCurrentLoans
 	}
-
 	
-	public Loan iSsUe_LoAn(Book book, Member member) {
-		Date dueDate = Calendar.gEtInStAnCe().gEt_DuE_DaTe(loanPeriod);
-		Loan loan = new Loan(gEt_NeXt_LoAn_Id(), book, member, dueDate);
-		member.TaKe_OuT_LoAn(loan);
-		book.BoRrOw();
-		LoAnS.put(loan.GeT_Id(), loan);
-		CuRrEnT_LoAnS.put(book.gEtId(), loan);
+	public Loan issueLoan(Book book, Member member) {//changed iSsUe_LoAn to issueLoan
+		Date dueDate = Calendar.gEtInStAnCe().gEt_DuE_DaTe(loanPeriod);//changed gEtInStAnCe to getInstance and gEt_DuE_DaTe to getDueDate
+		Loan loan = new Loan(gEt_NeXt_LoAn_Id(), book, member, dueDate); //changed gEt_NeXt_LoAn_Id to getNextLoanId
+		member.takeOutLoan(loan);// changed TaKe_OuT_LoAn to takeOutLoan
+		book.borrow();// changed BoRrOw to borrow 
+		loans.put(loan.getId(), loan);// changed LoAnS to loans and GeT_Id to getId
+		currentLoans.put(book.getId(), loan);// changed CuRrEnT_LoAnS to currentLoans, gEtId to getId
 		return loan;
 	}
 	
 	
-	public Loan GeT_LoAn_By_BoOkId(int bookId) {
-		if (CuRrEnT_LoAnS.containsKey(bookId)) 
-			return CuRrEnT_LoAnS.get(bookId);
+	public Loan getLoanByBookId(int bookId) { //changed GeT_LoAn_By_BoOkId to getLoanByBookId
+		if (currentLoans.containsKey(bookId)) //changed CuRrEnT_LoAnS to currentLoans
+			return currentLoans.get(bookId);//changed CuRrEnT_LoAnS to currentLoans
 		
 		return null;
 	}
