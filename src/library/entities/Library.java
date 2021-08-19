@@ -17,12 +17,12 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class Library implements Serializable {
 	
-	private static final String lIbRaRyFiLe = "library.obj";
-	private static final int lOaNlImIt = 2;
-	private static final int loanPeriod = 2;
-	private static final double FiNe_PeR_DaY = 1.0;
-	private static final double maxFinesOwed = 1.0;
-	private static final double damageFee = 2.0;
+	private static final String library_file = "library.obj";// changed lIbRaRyFile to Library_file
+	private static final int loan_limit = 2;//changed lOaNlImIt to loan_limit
+	private static final int loan_period = 2; // changed loanPeriod to loan_period
+	private static final double fine_per_day = 1.0; //changed FiNe_PeR_DaY to fine_per_day
+	private static final double max_fines_owed = 1.0;//changed maxFinesOwed to max_fines_owed
+	private static final double damage_fee = 2.0;// changed damageFee to damage_fee
 	
 
 	private static Library seLf; 
@@ -46,44 +46,44 @@ public class Library implements Serializable {
 	
 
 	private Library() {
-		CaTaLoG = new HashMap<>();
-		MeMbErS = new HashMap<>();
-		LoAnS = new HashMap<>();
-		CuRrEnT_LoAnS = new HashMap<>();
-		DaMaGeD_BoOkS = new HashMap<>();
-		bOoK_Id = 1;
-		mEmBeR_Id = 1;		
-		lOaN_Id = 1;		
+		catalog = new HashMap<>();//changed CaTaLoG to catalog
+		members = new HashMap<>();// changed MeMbErS to members
+		loans = new HashMap<>();// changed LoAnS to loans
+		currentloans = new HashMap<>();// changed CuRrEnT_LoAnS to currentloans
+		damagedbooks = new HashMap<>();//changed DaMaGeD_BoOkS to damagedbooks
+		bookId = 1;
+		memberId = 1;		
+		loanId = 1;		
 	}
 
 	
-	public static synchronized Library GeTiNsTaNcE() {		
-		if (SeLf == null) {
-			Path PATH = Paths.get(lIbRaRyFiLe);			
-			if (Files.exists(PATH)) {	
-				try (ObjectInputStream LiBrArY_FiLe = new ObjectInputStream(new FileInputStream(lIbRaRyFiLe));) {
+	public static synchronized Library getInstance() {// changed GeTiNsTaNcE to getInstance		
+		if (self == null) {// changed SeLf to self
+			Path PATH = Paths.get(libraryFile);// changed lIbRaRyFiLe to libraryFile			
+			if (Files.exists(path)) {// changed PATH to path	
+				try (ObjectInputStream LiBrArY_FiLe = new ObjectInputStream(new FileInputStream(lIbRaRyFiLe));) {//changed LiBrArY_FiLe to libraryFile ,changed lIbRaRyFiLe to library_file
 			    
-					SeLf = (Library) LiBrArY_FiLe.readObject();
-					Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
+					SeLf = (Library) LiBrArY_FiLe.readObject();// changed LiBrArY_FiLe to library_file
+					Calendar.getInstance().setDate(self.loanDate);//changed gEtInStAnCe to getInstance and SeT_DaTe to setDate ,SeLf.lOaN_DaTe to self.loanDate
 					LiBrArY_FiLe.close();
 				}
 				catch (Exception e) {
 					throw new RuntimeException(e);
 				}
 			}
-			else SeLf = new Library();
+			else Self = new Library();
 		}
-		return SeLf;
+		return Self;
 	}
 
 	
-	public static synchronized void SaVe() {
-		if (SeLf != null) {
-			SeLf.lOaN_DaTe = Calendar.gEtInStAnCe().gEt_DaTe();
-			try (ObjectOutputStream LiBrArY_fIlE = new ObjectOutputStream(new FileOutputStream(lIbRaRyFiLe));) {
-				LiBrArY_fIlE.writeObject(SeLf);
-				LiBrArY_fIlE.flush();
-				LiBrArY_fIlE.close();	
+	public static synchronized void Save() {
+		if (Self != null) {
+			self.loanDate = Calendar.getInstance().getDate();
+			try (ObjectOutputStream LibraryFile = new ObjectOutputStream(new FileOutputStream(library_File));) {
+				library_File.writeObject(SeLf);
+				library_File.flush();
+				library_File.close();	
 			}
 			catch (Exception e) {
 				throw new RuntimeException(e);
@@ -92,37 +92,38 @@ public class Library implements Serializable {
 	}
 
 	
-	public int gEt_BoOkId() {
-		return bOoK_Id;
+	public int getBookId() {//changed gEt_BoOkId to getBookId
+		return bOoK_Id;// changed  bOoK_Id to bookId
 	}
 
 	
-	public int gEt_MeMbEr_Id() {
-		return mEmBeR_Id;
+	public int getMemberId() {
+		return memberId;//Changed mEmBeR_Id to memberId
 	}
 	   
 
 	
 	
-	private int gEt_NeXt_BoOk_Id() {
-		return bOoK_Id++;
+	private int getNextBookId() {//Changed gEt_NeXt_BoOk_Id() to getNextBookId()
+		return bookId++;//changed bOoK_Id to bookId
 	}
 	
 
 
 	
-	private int gEt_NeXt_MeMbEr_Id() {
-		return mEmBeR_Id++;
+	private int getNextBookId() {
+		return memberId++;
 	}
 
 	
-	private int gEt_NeXt_LoAn_Id() {
-		return lOaN_Id++;
+	private int getNextLoanId() {
+		return loanId++;
 	}
 
 	
-	public List<Member> lIsT_MeMbErS() {		
-		return new ArrayList<Member>(MeMbErS.values()); 
+	public List<Member> listMembers() {// 	Changed lIsT_MeMbErS() to listMembers()		
+		return new ArrayList<Member>(members.values()); //Changed MeMbErS() to members()
+	
 	}
 
 
