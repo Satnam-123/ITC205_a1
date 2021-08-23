@@ -4,12 +4,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Calendar {
 	
-	private static Calendar sElF;
-	private static java.util.Calendar cAlEnDaR;
+	private static Calendar self;// changed sElF to self
+	private static java.util.Calendar calendar; //changed cAlEnDaR to calendar
 	
 	
 	private Calendar() {
-		cAlEnDaR = java.util.Calendar.getInstance();
+		calendar = java.util.Calendar.getInstance();//changed cAlEnDaR to calendar
 	}
 	
 	public static Calendar gEtInStAnCe() {
