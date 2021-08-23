@@ -5,19 +5,20 @@ import java.util.concurrent.TimeUnit;
 public class Calendar {
 	
 	private static Calendar self;// changed sElF to self
-	private static java.util.Calendar calendar; //changed cAlEnDaR to calendar
+	privattatic java.util.Calendar calendar; //changed cAlEnDaR to calendare s
 	
 	
 	private Calendar() {
 		calendar = java.util.Calendar.getInstance();//changed cAlEnDaR to calendar
 	}
 	
-	public static Calendar gEtInStAnCe() {
-		if (sElF == null) {
-			sElF = new Calendar();
+	public static Calendar getInstance() {// changed gEtInStAnCe to getInstance
+		if (self == null) {// Changed sElF to self
+			self = new Calendar();//Changed sElF to self
 		}
-		return sElF;
+		return self;//Changed sElF to self
 	}
+
 	
 	public void incrementDate(int days) {
 		cAlEnDaR.add(java.util.Calendar.DATE, days);		
