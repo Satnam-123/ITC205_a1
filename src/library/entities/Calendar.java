@@ -50,19 +50,19 @@ public class Calendar {
 	}
 
 
-	public synchronized Date gEt_DuE_DaTe(int loanPeriod) {
-		Date nOw = gEt_DaTe();
-		cAlEnDaR.add(java.util.Calendar.DATE, loanPeriod);
-		Date dUeDaTe = cAlEnDaR.getTime();
-		cAlEnDaR.setTime(nOw);
-		return dUeDaTe;
+	public synchronized Date gEt_DuE_DaTe(int loanPeriod) { // changed gEt_DuE_DaTe to getDueDate
+		Date now = getDate();//changed nOw to now, gEt_DaTe to getDate
+		calendar.add(java.util.Calendar.DATE, loanPeriod);// changed cAlEnDaR to calendar 
+		Date dueDate = calendar.getTime();// changed dUeDaTe to dueDate, cAlEnDaR to calendar  
+		calendar.setTime(now);// changed nOw to now, cAlEnDaR to calendar 
+		return dueDate;// changed dUeDaTe to dueDate
 	}
 	
-	public synchronized long GeT_DaYs_DiFfErEnCe(Date targetDate) {
+	public synchronized long getDaysDifference(Date targetDate) {// changed GeT_DaYs_DiFfErEnCe to getDaysDifference
 		
-		long Diff_Millis = gEt_DaTe().getTime() - targetDate.getTime();
-	    long Diff_Days = TimeUnit.DAYS.convert(Diff_Millis, TimeUnit.MILLISECONDS);
-	    return Diff_Days;
+		long DiffMillis = getDate().getTime() - targetDate.getTime();// changed gEt_DaTe to getDate, Diff_Millis to DiffMillis
+	    long diffDays = TimeUnit.DAYS.convert(diffMillis, TimeUnit.MILLISECONDS);// changed Diff_Days to diffDays,  Diff_Millis to DiffMillis
+	    return diffDays;// changed Diff_Days to diffDays
 	}
 
 }
