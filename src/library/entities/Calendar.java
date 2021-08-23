@@ -19,19 +19,19 @@ public class Calendar {
 		return self;//Changed sElF to self
 	}
 
-	
 	public void incrementDate(int days) {
-		cAlEnDaR.add(java.util.Calendar.DATE, days);		
+		calendar.add(java.util.Calendar.DATE, days);	//	changed cAlEnDaR to calendar
 	}
 	
-	public synchronized void SeT_DaTe(Date DaTe) {
+	public synchronized void setDate(Date date) {// changed SeT_DaTe to setDate, DaTe to date
 		try {
-			cAlEnDaR.setTime(DaTe);
-	        cAlEnDaR.set(java.util.Calendar.HOUR_OF_DAY, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MINUTE, 0);  
-	        cAlEnDaR.set(java.util.Calendar.SECOND, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MILLISECOND, 0);
+			calendar.setTime(date);// changed cAlEnDaR to calendar, DaTe to date
+	        calendar.set(java.util.Calendar.HOUR_OF_DAY, 0);  // changed cAlEnDaR to calendar
+	        calendar.set(java.util.Calendar.MINUTE, 0);  // changed cAlEnDaR to calendar
+	        calendar.set(java.util.Calendar.SECOND, 0);  // changed cAlEnDaR to calendar
+	        calendar.set(java.util.Calendar.MILLISECOND, 0);// changed cAlEnDaR to calendar
 		}
+
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}	
