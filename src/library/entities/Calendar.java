@@ -36,18 +36,19 @@ public class Calendar {
 			throw new RuntimeException(e);
 		}	
 	}
-	public synchronized Date gEt_DaTe() {
+	public synchronized Date gEt_DaTe() {// changed gEt_DaTe to getDate
 		try {
-	        cAlEnDaR.set(java.util.Calendar.HOUR_OF_DAY, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MINUTE, 0);  
-	        cAlEnDaR.set(java.util.Calendar.SECOND, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MILLISECOND, 0);
-			return cAlEnDaR.getTime();
+	        calendar.set(java.util.Calendar.HOUR_OF_DAY, 0); // changed cAlEnDaR to calendar 
+	        calendar.set(java.util.Calendar.MINUTE, 0);  // changed cAlEnDaR to calendar 
+	        calendar.set(java.util.Calendar.SECOND, 0);  // changed cAlEnDaR to calendar 
+	        calendar.set(java.util.Calendar.MILLISECOND, 0);// changed cAlEnDaR to calendar 
+			return calendar.getTime();// changed cAlEnDaR to calendar 
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}	
 	}
+
 
 	public synchronized Date gEt_DuE_DaTe(int loanPeriod) {
 		Date nOw = gEt_DaTe();
