@@ -15,21 +15,22 @@ public class Loan implements Serializable {
 	private LoanState state;// Changed lOaN_sTaTe to LoanState, StAtE to state
 
 	
-	public Loan(int loanId, Book bOoK, Member mEmBeR, Date DuE_dAtE) {
-		this.LoAn_Id = loanId;
-		this.BoOk = bOoK;
-		this.MeMbEr = mEmBeR;
-		this.DaTe = DuE_dAtE;
-		this.StAtE = lOaN_sTaTe.CURRENT;
+	public Loan(int loanId, Book book, Member member, Date dueDate) {// Changed bOoK to book, mEmBeR to member, DuE_dAtE to dueDate
+		this.loanId = loanId;// changed LoAn_Id to LoanId
+		this.book = book;//changed BoOk to book , bOoK to book
+		this.member = member;//changed MeMbEr to member , mEmBeR to member
+		this.date = dueDate;//changed DaTe to date, DuE_dAtE to dueDate
+		this.state = LoanState.CURRENT;//chnaged StAtE to state, lOaN_sTaTe to LoanState
 	}
 
 	
-	public void cHeCk_OvEr_DuE() {
-		if (StAtE == lOaN_sTaTe.CURRENT &&
-			Calendar.gEtInStAnCe().gEt_DaTe().after(DaTe)) 
-			this.StAtE = lOaN_sTaTe.OVER_DUE;			
+	public void checkOverDue() {//changed cHeCk_OvEr_DuE to checkOverDue
+		if (state == LoanState.CURRENT && // changed StAtE to state, lOaN_sTaTe to LoanState
+			Calendar.getInstance().getDate().after(date))  // changed gEtInStAnCe to getInstance, gEt_DaTe to getDate, DaTe to date
+			this.state = LoanState.OVER_DUE;	// 	changed	StAtE to state, lOaN_sTaTe to LoanState
 		
 	}
+
 
 	
 	public boolean Is_OvEr_DuE() {
