@@ -86,32 +86,32 @@ public class BorrowBookUI {
 					
 				
 			case FINALISING:
-				String AnS = iNpUT("Commit loans? (Y/N): ");
-				if (AnS.toUpperCase().equals("N")) {
-					CoNtRoL.CaNcEl();
+				String ans = input("Commit loans? (Y/N): ");//changed AnS to ans,iNpUT to input 
+				if (ans.toUpperCase().equals("N")) {//changed AnS to ans
+					control.cancel();// changed CoNtRoL to control, CaNcEl to cancel
 					
 				} else {
-					CoNtRoL.CoMmIt_LoAnS();
-					iNpUT("Press <any key> to complete ");
+					control.commitLoans();//changed CoNtRoL to control, CoMmIt_LoAnS to commitLoans
+					input("Press <any key> to complete ");// changed iNpUT to input
 				}
 				break;
 				
 				
 			case COMPLETED:
-				OuTpUt("Borrowing Completed");
+				output("Borrowing Completed");//changed OuTpUt to output
 				return;
 	
 				
 			default:
-				OuTpUt("Unhandled state");
-				throw new RuntimeException("BorrowBookUI : unhandled state :" + StaTe);			
+				output("Unhandled state");//changed OuTpUt to output
+				throw new RuntimeException("BorrowBookUI : unhandled state :" + state);	//changed StaTe to state		
 			}
 		}		
 	}
 
 
-	public void DiSpLaY(Object object) {
-		OuTpUt(object);		
+	public void display(Object object) {//changed DiSpLaY to display
+		output(object);		//changed OuTpUt to output
 	}
 
 
