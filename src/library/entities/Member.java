@@ -17,17 +17,17 @@ public class Member implements Serializable {
 	private double finesOwing;// changed FiNeS_OwInG to finesOwing
 
 	
-	private Map<Integer, Loan> cUrReNt_lOaNs;
+	private Map<Integer, Loan> currentLoans;//changed cUrReNt_lOaNs  to currentLoans
 
 	
-	public Member(String lAsT_nAmE, String fIrSt_nAmE, String eMaIl_aDdReSs, int pHoNe_nUmBeR, int mEmBeR_iD) {
-		this.LaSt_NaMe = lAsT_nAmE;
-		this.FiRsT_NaMe = fIrSt_nAmE;
-		this.EmAiL_AdDrEsS = eMaIl_aDdReSs;
-		this.PhOnE_NuMbEr = pHoNe_nUmBeR;
-		this.MeMbEr_Id = mEmBeR_iD;
+	public Member(String lastName, String firstName, String emailAddress, int phoneNumber, int memberId) {//changed LaSt_NaMe to lastName, fIrSt_nAmE to FirstName, eMaIl_aDdReSs to emailAddress, pHoNe_nUmBeR to phoneNumber, mEmBeR_iD to memberId
+		this.lastName = lastName;//changed LaSt_NaMe to lastName
+		this.firstName = firstName;//changed FiRsT_NaMe to firstName
+		this.emaiAddress = emaiAddress;//changed EmAiL_AdDrEsS to emailAddress
+		this.phoneNumber = phoneNumber;// changed PhOnE_NuMbEr to phoneNumber
+		this.memberId = memberId;// changed MeMbEr_Id to memberId
 		
-		this.cUrReNt_lOaNs = new HashMap<>();
+		this.currentLoans = new HashMap<>();//changed cUrReNt_lOaNs  to currentLoans
 	}
 
 	
