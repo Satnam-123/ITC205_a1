@@ -79,34 +79,35 @@ public String toString() {
 
 
 	
-	public String GeT_LaSt_NaMe() {
-		return LaSt_NaMe;
+	public String getLastName() {// changed GeT_LaSt_NaMe to getLastName
+		return lastName;// changed LaSt_NaMe to lastName
 	}
 
 	
-	public String GeT_FiRsT_NaMe() {
-		return FiRsT_NaMe;
+	public String getFirstName() {// changed GeT_FiRsT_NaMe to getFirstName
+		return firstName;// changed FiRsT_NaMe to firstName
 	}
 
 
-	public void AdD_FiNe(double fine) {
-		FiNeS_OwInG += fine;
+	public void addFine(double fine) {// changed AdD_FiNe TO addFine
+		finesOwing += fine; // changed FiNeS_OwInG TO finesOwing
 	}
 	
-	public double PaY_FiNe(double AmOuNt) {
-		if (AmOuNt < 0) 
+	public double payFine(double amount) {// changed PaY_FiNe to payFine, AmOuNt to amount
+		if (amount < 0) // changed  AmOuNt to amount
 			throw new RuntimeException("Member.payFine: amount must be positive");
 		
 		double change = 0;
-		if (AmOuNt > FiNeS_OwInG) {
-			change = AmOuNt - FiNeS_OwInG;
-			FiNeS_OwInG = 0;
+		if (amount > finesOwing) {// changed AmOuNt to amount, FiNeS_OwInG to finesOwing
+			change = amount - finesOwing;//changed AmOuNt to amount, FiNeS_OwInG to finesOwing
+			finesOwing = 0;//changed FiNeS_OwInG to finesOwing
 		}
 		else 
-			FiNeS_OwInG -= AmOuNt;
+			finesOwing -= amount;//changed AmOuNt to amount, FiNeS_OwInG to finesOwing
 		
 		return change;
 	}
+
 
 
 	public void dIsChArGeLoAn(Loan LoAn) {
