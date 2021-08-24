@@ -4,47 +4,48 @@ import java.util.Scanner;
 
 public class BorrowBookUI {
 	
-	public static enum uI_STaTe { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	public static enum UiState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };// changed uI_STaTe to UiState
 
-	private bORROW_bOOK_cONTROL CoNtRoL;
-	private Scanner InPuT;
-	private uI_STaTe StaTe;
+	private BorrowBookControl control;//changed bORROW_bOOK_cONTROL to BorrowBookControl , CoNtRoL to control
+	private Scanner InPuT;//changed InPuT to input
+	private UiState state;// changed uI_STaTe to UiState, StaTeto state
 
 	
-	public BorrowBookUI(bORROW_bOOK_cONTROL control) {
-		this.CoNtRoL = control;
-		InPuT = new Scanner(System.in);
-		StaTe = uI_STaTe.INITIALISED;
-		control.SeT_Ui(this);
+	public BorrowBookUI(BorrowBookControl control) {// changed bORROW_bOOK_cONTROL to BorrowBookControl ,
+		this.control = control;//changed CoNtRoL to control 
+		input = new Scanner(System.in);//changed InPuT to input
+		state = uiState.INITIALISED;// changed StaTe to state, uI_STaTeto uiState
+		control.setUi(this);//changed SeT_Ui to setUi
 	}
 
 	
-	private String iNpUT(String PrOmPt) {
-		System.out.print(PrOmPt);
-		return InPuT.nextLine();
+	private String input(String prompt) {// changed iNpUT to input, PrOmPt to prompt
+		System.out.print(prompt);//changed PrOmPt TO prompt
+		return input.nextLine();//changed InPuT to input
 	}	
 		
 		
-	private void OuTpUt(Object ObJeCt) {
-		System.out.println(ObJeCt);
+	private void output(Object object) {// changed OuTpUt to output, ObJeCt to object
+		System.out.println(object);// changed ObJeCt to object
 	}
 	
 			
-	public void SeT_StAtE(uI_STaTe StAtE) {
-		this.StaTe = StAtE;
+	public void setState(uiState state) {//changed SeT_StAtE to setState, uI_STaTe to uiState, StAtE to state
+		this.state = state;// changed StaTe to state, StAtE to state
 	}
 
 	
-	public void RuN() {
-		OuTpUt("Borrow Book Use Case UI\n");
+	public void run() {// changed RuN to run
+		output("Borrow Book Use Case UI\n");// changed OuTpUt to output
 		
 		while (true) {
 			
-			switch (StaTe) {			
+			switch (StaTe) {	// changed	StaTe to state
 			
 			case CANCELLED:
-				OuTpUt("Borrowing Cancelled");
+				OuTpUt("Borrowing Cancelled");// changed OuTpUt to output
 				return;
+
 
 				
 			case READY:
