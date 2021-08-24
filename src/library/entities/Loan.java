@@ -6,13 +6,13 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class Loan implements Serializable {
 	
-	public static enum lOaN_sTaTe { CURRENT, OVER_DUE, DISCHARGED };
+	public static enum LoanState { CURRENT, OVER_DUE, DISCHARGED };//changed lOaN_sTaTe to LoanState
 	
-	private int LoAn_Id;
-	private Book BoOk;
-	private Member MeMbEr;
-	private Date DaTe;
-	private lOaN_sTaTe StAtE;
+	private int loanId;// changed LoAn_Id to loanId
+	private Book book;//changed BoOk to book
+	private Member member;//changed  MeMbEr to member
+	private Date date;// changed DaTe to date
+	private LoanState state;// Changed lOaN_sTaTe to LoanState, StAtE to state
 
 	
 	public Loan(int loanId, Book bOoK, Member mEmBeR, Date DuE_dAtE) {
