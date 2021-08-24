@@ -33,23 +33,23 @@ public class Book implements Serializable {
 		return sb.toString();
 	}
 
-	public Integer gEtId() {
-		return iD;
+	public Integer getId() {// changed gEtId to getId
+		return id; // changed iD to id
 	}
 
-	public String gEtTiTlE() {
-		return tItLe;
+	public String getTitle() {// changed gEtTiTlE to getTitle
+		return title; // changed tItLe to title
 	}
 
 
 	
-	public boolean iS_AvAiLaBlE() {
-		return StAtE == sTaTe.AVAILABLE;
+	public boolean isAvailable() {// changed iS_AvAiLaBlE to isAvailable
+		return state == State.AVAILABLE;// changed StAtE to state, sTaTe to State
 	}
 
 	
-	public boolean iS_On_LoAn() {
-		return StAtE == sTaTe.ON_LOAN;
+	public boolean isOnLoan() {// changed iS_On_LoAn to isOnLoan
+		return state == State.ON_LOAN;// changed StAtE to state, sTaTe to State
 	}
 
 	
