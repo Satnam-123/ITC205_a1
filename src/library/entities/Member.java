@@ -33,10 +33,10 @@ public class Member implements Serializable {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Member:  ").append(MeMbEr_Id).append("\n")
-		  .append("  Name:  ").append(LaSt_NaMe).append(", ").append(FiRsT_NaMe).append("\n")
-		  .append("  Email: ").append(EmAiL_AdDrEsS).append("\n")
-		  .append("  Phone: ").append(PhOnE_NuMbEr)
+		sb.append("Member:  ").append(memberId).append("\n")//changed MeMbEr_Id to memberId
+		  .append("  Name:  ").append(lastName).append(", ").append(firstName).append("\n")// changed LaSt_NaMe to lastName, FiRsT_NaMe to firstName
+		  .append("  Email: ").append(emailAddress).append("\n")//changed EmAiL_AdDrEsS to emailAddress 
+		  .append("  Phone: ").append(phoneNumber)//changed PhOnE_NuMbEr to phoneNumber
 		  .append("\n")
 		  .append(String.format("  Fines Owed :  $%.2f", FiNeS_OwInG))
 		  .append("\n");
