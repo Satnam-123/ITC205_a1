@@ -5,30 +5,30 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Book implements Serializable {
 	
-	private String tItLe;
-	private String AuThOr;
-	private String CALLNO;
-	private int iD;
+	private String title;// changed tItLe to title
+	private String author;// changed AuThOr to author
+	private String callNo;//changed CALLNO to callNo
+	private int id;// changed iD to id
 	
-	private enum sTaTe { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
-	private sTaTe StAtE;
+	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };// changed sTaTe to STATE
+	private State state;//Changed  sTaTe to State, StAtE to state
 	
 	
 	public Book(String author, String title, String callNo, int id) {
-		this.AuThOr = author;
-		this.tItLe = title;
-		this.CALLNO = callNo;
-		this.iD = id;
-		this.StAtE = sTaTe.AVAILABLE;
+		this.AuThOr = author;// Changed  AuThOr to author
+		this.title = title;// Changed  tItLe to title
+		this.callNo = callNo;//Changed  CALLNO to callNo
+		this.id = id;//Changed iD to id
+		this.state = State.AVAILABLE;//Changed StAtE to state , sTaTe to State
 	}
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Book: ").append(iD).append("\n")
-		  .append("  Title:  ").append(tItLe).append("\n")
-		  .append("  Author: ").append(AuThOr).append("\n")
-		  .append("  CallNo: ").append(CALLNO).append("\n")
-		  .append("  State:  ").append(StAtE);
+		sb.append("Book: ").append(id).append("\n")// changed iD to id
+		  .append("  Title:  ").append(title).append("\n")// changed tItLe to title
+		  .append("  Author: ").append(author).append("\n")// changed AuThOr to author
+		  .append("  CallNo: ").append(callNo).append("\n")//changed CALLNO to callno
+		  .append("  State:  ").append(state);//Changed  StAtE to state
 		
 		return sb.toString();
 	}
