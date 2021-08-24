@@ -38,44 +38,45 @@ public class Member implements Serializable {
 		  .append("  Email: ").append(emailAddress).append("\n")//changed EmAiL_AdDrEsS to emailAddress 
 		  .append("  Phone: ").append(phoneNumber)//changed PhOnE_NuMbEr to phoneNumber
 		  .append("\n")
-		  .append(String.format("  Fines Owed :  $%.2f", FiNeS_OwInG))
+		  .append(String.format("  Fines Owed :  $%.2f", finesOwing))//changed FiNeS_OwInG to finesOwing 
 		  .append("\n");
 		
-		for (Loan LoAn : cUrReNt_lOaNs.values()) {
-			sb.append(LoAn).append("\n");
+		for (Loan loan : currentLoans.values()) {//changed LoAn to loan, cUrReNt_lOaNs to currentLoans
+			sb.append(loan).append("\n");// changed LoAn to loan
 		}		  
 		return sb.toString();
 	}
 
 	
-	public int GeT_ID() {
-		return MeMbEr_Id;
+	public int getId() { //changed GeT_ID to getId
+		return memberId;// changed MeMbEr_Id to memberId
 	}
 
 	
-	public List<Loan> GeT_LoAnS() {
-		return new ArrayList<Loan>(cUrReNt_lOaNs.values());
+	public List<Loan> getLoans() {//changed GeT_LoAnS to getLoans
+		return new ArrayList<Loan>(currentLoans.values());//changed cUrReNt_lOaNs to currentLoans
 	}
 
 	
-	public int gEt_nUmBeR_Of_CuRrEnT_LoAnS() {
-		return cUrReNt_lOaNs.size();
+	public int getNumberOfCurrentLoans() {//changed gEt_nUmBeR_Of_CuRrEnT_LoAnS to getNumberOfCurrentLoans
+		return currentLoans.size();// changed cUrReNt_lOaNs to currentLoans
 	}
 
 	
-	public double FiNeS_OwEd() {
-		return FiNeS_OwInG;
+	public double finesOwed() {// changed FiNeS_OwEd to finesOwed
+		return finesOwing;// changed FiNeS_OwInG to finesOwing
 	}
 
 	
-	public void TaKe_OuT_LoAn(Loan lOaN) {
-		if (!cUrReNt_lOaNs.containsKey(lOaN.GeT_Id())) 
-			cUrReNt_lOaNs.put(lOaN.GeT_Id(), lOaN);
+	public void takeOutLoan(Loan loan) {// changed TaKe_OuT_LoAn to takeOutLoan, lOaN to loan
+		if (!currentLoans.containsKey(loan.getId())) //changed cUrReNt_lOaNs to currentLoans, lOaN to loan, GeT_Id to getId
+			currentLoans.put(loan.getId(), loan);//changed cUrReNt_lOaNs to currentLoans, lOaN to loan, GeT_Id to getId
 		
 		else 
 			throw new RuntimeException("Duplicate loan added to member");
 				
 	}
+
 
 	
 	public String GeT_LaSt_NaMe() {
