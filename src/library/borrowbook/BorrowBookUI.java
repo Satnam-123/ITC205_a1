@@ -19,32 +19,33 @@ public class BorrowBookUI {
 	}
 
 	
-	private String iNpUT(String PrOmPt) {
-		System.out.print(PrOmPt);
-		return InPuT.nextLine();
+	private String input(String prompt) {// changed iNpUT to input, PrOmPt to prompt
+		System.out.print(prompt);//changed PrOmPt TO prompt
+		return input.nextLine();//changed InPuT to input
 	}	
 		
 		
-	private void OuTpUt(Object ObJeCt) {
-		System.out.println(ObJeCt);
+	private void output(Object object) {// changed OuTpUt to output, ObJeCt to object
+		System.out.println(object);// changed ObJeCt to object
 	}
 	
 			
-	public void SeT_StAtE(uI_STaTe StAtE) {
-		this.StaTe = StAtE;
+	public void setState(uiState state) {//changed SeT_StAtE to setState, uI_STaTe to uiState, StAtE to state
+		this.state = state;// changed StaTe to state, StAtE to state
 	}
 
 	
-	public void RuN() {
-		OuTpUt("Borrow Book Use Case UI\n");
+	public void run() {// changed RuN to run
+		output("Borrow Book Use Case UI\n");// changed OuTpUt to output
 		
 		while (true) {
 			
-			switch (StaTe) {			
+			switch (StaTe) {	// changed	StaTe to state
 			
 			case CANCELLED:
-				OuTpUt("Borrowing Cancelled");
+				OuTpUt("Borrowing Cancelled");// changed OuTpUt to output
 				return;
+
 
 				
 			case READY:
