@@ -70,17 +70,17 @@ public class BorrowBookUI {
 			
 				
 			case SCANNING:
-				String BoOk_StRiNg_InPuT = iNpUT("Scan Book (<enter> completes): ");
-				if (BoOk_StRiNg_InPuT.length() == 0) {
-					CoNtRoL.CoMpLeTe();
+				String bookStringInput = input("Scan Book (<enter> completes): ");// changed BoOk_StRiNg_InPuT to bookStringInput, iNpUTto input
+				if (bookStringInput.length() == 0) { //changed BoOk_StRiNg_InPuT to bookStringInput
+					control.CoMpLeTe();// changed CoNtRoL to control, CoMpLeTe to complete
 					break;
 				}
 				try {
-					int BiD = Integer.valueOf(BoOk_StRiNg_InPuT).intValue();
-					CoNtRoL.ScAnNeD(BiD);
+					int bid = Integer.valueOf(bookStringInput).intValue();// changed BiD to bid, BoOk_StRiNg_InPuT to bookStringInput
+					control.scanned(bid);//changed CoNtRoLto control, ScAnNeD to scanned, BiDto bid
 					
 				} catch (NumberFormatException e) {
-					OuTpUt("Invalid Book Id");
+					output("Invalid Book Id");// changed OuTpUt to outout
 				} 
 				break;
 					
