@@ -31,7 +31,7 @@ public class Member implements Serializable {
 	}
 
 	
-	public String toString() {
+public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Member:  ").append(memberId).append("\n")//changed MeMbEr_Id to memberId
 		  .append("  Name:  ").append(lastName).append(", ").append(firstName).append("\n")// changed LaSt_NaMe to lastName, FiRsT_NaMe to firstName
