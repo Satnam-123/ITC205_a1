@@ -55,20 +55,23 @@ public class FixBookUI {
 				
 				control.fixBook(fix);//changed CoNtRoL TO control, FiX_BoOk to fixBook, FiX to fix
 	
-				break;
+				
+					break;
 								
 			case COMPLETED:
-				OuTpUt("Fixing process complete");
+				output("Fixing process complete");// changed OuTpUt to output
 				return;
 			
 			default:
-				OuTpUt("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
+				output("Unhandled state");// changed OuTpUt to output
+				throw new RuntimeException("FixBookUI : unhandled state :" + state);// changed 	StAtEto state		
 			
 			}		
 		}
 		
 	}
+
+					
 
 	
 	private String iNpUt(String prompt) {
