@@ -19,41 +19,42 @@ public class FixBookUI {
 	}
 
 
-	public void SeT_StAtE(uI_sTaTe state) {
-		this.StAtE = state;
+	public void setState(UiState state) {//changed SeT_StAtE to setState, uI_sTaTe TO UiState
+		this.state = state;//changed StAtE to state
 	}
 
 	
-	public void RuN() {
-		OuTpUt("Fix Book Use Case UI\n");
+	public void run() {//changed RuN to run
+		output("Fix Book Use Case UI\n");//changed OuTpUt to output
 		
 		while (true) {
 			
-			switch (StAtE) {
+			switch (StAtE) {// changed StAtE to state
 			
 			case READY:
-				String BoOk_EnTrY_StRiNg = iNpUt("Scan Book (<enter> completes): ");
-				if (BoOk_EnTrY_StRiNg.length() == 0) 
-					CoNtRoL.SCannING_COMplete();
+				String bookEntryString = input("Scan Book (<enter> completes): ");// changed BoOk_EnTrY_StRiNg to bookEntryString, iNpUt to input 
+				if (bookEntryString.length() == 0) // changed BoOk_EnTrY_StRiNg to bookEntryString
+					control.scanningComplete();//changed CoNtRoL to control, SCannING_COMplete to scanningComplete
 				
 				else {
 					try {
-						int BoOk_Id = Integer.valueOf(BoOk_EnTrY_StRiNg).intValue();
-						CoNtRoL.BoOk_ScAnNeD(BoOk_Id);
+						int bookId = Integer.valueOf(bookEntryString).intValue();// changed BoOk_Id to bookId, BoOk_EnTrY_StRiNg to bookEntryString
+						control.bookScanned(bookId);//changed CoNtRoL to control, BoOk_ScAnNeD to bookScanned, BoOk_Id to bookId
 					}
 					catch (NumberFormatException e) {
-						OuTpUt("Invalid bookId");
+						output("Invalid bookId");//changed OuTpUt to output
 					}
 				}
 				break;	
 				
 			case FIXING:
-				String AnS = iNpUt("Fix Book? (Y/N) : ");
-				boolean FiX = false;
-				if (AnS.toUpperCase().equals("Y")) 
-					FiX = true;
+				String ans = input("Fix Book? (Y/N) : ");//changed AnS to ans, iNpUt to input
+				boolean fix = false;// changed FiX to fix
+				if (ans.toUpperCase().equals("Y")) //changed AnS to ans
+					fix = true;//changed FiX to fix
 				
-				CoNtRoL.FiX_BoOk(FiX);
+				control.fixBook(fix);//changed CoNtRoL TO control, FiX_BoOk to fixBook, FiX to fix
+	
 				break;
 								
 			case COMPLETED:
