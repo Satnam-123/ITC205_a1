@@ -11,20 +11,21 @@ public class  FixBookControl{// changed fIX_bOOK_cONTROL to FixBookControl
 	private Library library;//changed LiBrArY to library
 	private Book currentBook;//changed CuRrEnT_BoOk to currentBook
 
-	public fIX_bOOK_cONTROL() {
-		this.LiBrArY = Library.GeTiNsTaNcE();
-		StAtE = CoNtRoL_StAtE.INITIALISED;
+	public FixBookControl() {// changed fIX_bOOK_cONTROL to FixBookControl
+		this.library = Library.getInstance();//changed LiBrArY to library , GeTiNsTaNcE to getInstance
+		state = ControlState.INITIALISED;//changed  StAtE to state, CoNtRoL_StAtE to controlState
 	}
 	
 	
-	public void SeT_Ui(FixBookUI ui) {
-		if (!StAtE.equals(CoNtRoL_StAtE.INITIALISED)) 
+	public void setUi(FixBookUI ui) {// changed SeT_Ui to setUi
+		if (!state.equals(controlState.INITIALISED)) //changed StAtE to state, CoNtRoL_StAtE to controlState
 			throw new RuntimeException("FixBookControl: cannot call setUI except in INITIALISED state");
 			
-		this.Ui = ui;
-		ui.SeT_StAtE(FixBookUI.uI_sTaTe.READY);
-		StAtE = CoNtRoL_StAtE.READY;		
+		this.ui = ui;// Changed Ui to ui
+		ui.setSate(FixBookUI.uiState.READY);//changed SeT_StAtE to setSate, uI_sTaTe to uiState
+		state = controlState.READY;	// 	changed StAtE to state, CoNtRoL_StAtE to controlState
 	}
+
 
 
 	public void BoOk_ScAnNeD(int BoOkId) {
