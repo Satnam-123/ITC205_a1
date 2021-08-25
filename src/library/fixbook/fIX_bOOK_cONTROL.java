@@ -47,25 +47,27 @@ public void bookScanned(int bookId) {// changed BoOk_ScAnNeD to bookScanned,BoOk
 		ui.setSate(FixBookUI.uiState.FIXING);// changed Ui to ui, SeT_StAtE to setSate, uI_sTaTeto uiState
 		state = controlState.FIXING;		// changed StAtE to state, CoNtRoL_StAtE to controlState
 	}
-
-	public void FiX_BoOk(boolean mUsT_FiX) {
-		if (!StAtE.equals(CoNtRoL_StAtE.FIXING)) 
+	
+	
+	public void fixBook(boolean mustFix) {// changed FiX_BoOk to fixBook, mUsT_FiX to mustFix
+		if (!state.equals(ControlState.FIXING)) //Changed StAtE to state, CoNtRoL_StAtE to ControlState
 			throw new RuntimeException("FixBookControl: cannot call fixBook except in FIXING state");
 			
-		if (mUsT_FiX) 
-			LiBrArY.RePaIr_BoOk(CuRrEnT_BoOk);
+		if (mustFix) // Changed mUsT_FiX to mustFix
+			library.repairBook(currentBook);//changed LiBrArY to library, RePaIr_BoOkto repairBook, CuRrEnT_BoOk to currentBook
 		
-		CuRrEnT_BoOk = null;
-		Ui.SeT_StAtE(FixBookUI.uI_sTaTe.READY);
-		StAtE = CoNtRoL_StAtE.READY;		
+		currentBook = null;// changed CuRrEnT_BoOk to currentBook
+		ui.setSate(FixBookUI.uiState.READY);//changed Ui to ui, SeT_StAtE to setState, uI_sTaTe to uiState
+		state = ControlState.READY;	//	changed StAtE to state, CoNtRoL_StAtE to ControlState
 	}
 
 	
-	public void SCannING_COMplete() {
-		if (!StAtE.equals(CoNtRoL_StAtE.READY)) 
+	public void scanningComplete() {// changed SCannING_COMplete to scanningComplete
+		if (!state.equals(ControlState.READY)) //changed StAtE to state, CoNtRoL_StAtE to ControlState
 			throw new RuntimeException("FixBookControl: cannot call scanningComplete except in READY state");
 			
-		Ui.SeT_StAtE(FixBookUI.uI_sTaTe.COMPLETED);		
+		ui.setSate(FixBookUI.uiState.COMPLETED);	//changed Ui to ui, SeT_StAtE to setStae, uI_sTaTe to uiState	
 	}
 
 }
+
