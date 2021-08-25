@@ -2,15 +2,14 @@ package library.fixbook;
 import library.entities.Book;
 import library.entities.Library;
 
-public class fIX_bOOK_cONTROL {
+public class  FixBookControl{// changed fIX_bOOK_cONTROL to FixBookControl
 	
-	private FixBookUI Ui;
-	private enum CoNtRoL_StAtE { INITIALISED, READY, FIXING };
-	private CoNtRoL_StAtE StAtE;
+	private FixBookUI ui;// changed Ui to uI
+	private enum ControlState { INITIALISED, READY, FIXING };// CHANGED CoNtRoL_StAtE TO ControlState
+	private ControlState state;//changed CoNtRoL_StAtE to ControlState, StAtE to state
 	
-	private Library LiBrArY;
-	private Book CuRrEnT_BoOk;
-
+	private Library library;//changed LiBrArY to library
+	private Book currentBook;//changed CuRrEnT_BoOk to currentBook
 
 	public fIX_bOOK_cONTROL() {
 		this.LiBrArY = Library.GeTiNsTaNcE();
