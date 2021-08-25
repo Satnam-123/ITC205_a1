@@ -1,21 +1,21 @@
-package library.fixbook;
+package package library.fixbook;
 import java.util.Scanner;
 
 
 public class FixBookUI {
 
-	public static enum uI_sTaTe { INITIALISED, READY, FIXING, COMPLETED };
+	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED };//changed uI_sTaTe to UiState
 
-	private fIX_bOOK_cONTROL CoNtRoL;
-	private Scanner InPuT;
-	private uI_sTaTe StAtE;
+	private FixBookControl control;//changed fIX_bOOK_cONTROL to FixBookControl ,  CoNtRoL to control
+	private Scanner input;// changed InPuT to input
+	private UiState state;//changed uI_sTaTe to UiState, StAtE to state
 
 	
-	public FixBookUI(fIX_bOOK_cONTROL CoNtRoL) {
-		this.CoNtRoL = CoNtRoL;
-		InPuT = new Scanner(System.in);
-		StAtE = uI_sTaTe.INITIALISED;
-		CoNtRoL.SeT_Ui(this);
+	public FixBookUI(FixBookControl control) {//changed fIX_bOOK_cONTROL to FixBookControl ,  CoNtRoL to control
+		this.control = control;//changed  CoNtRoL to control
+		input = new Scanner(System.in);// changed InPuT to input
+		state = UiState.INITIALISED;//changed StAtE to state, uI_sTaTe  to UiState
+		control.setUi(this);// changed CoNtRoL to control, SeT_Uito setUi
 	}
 
 
