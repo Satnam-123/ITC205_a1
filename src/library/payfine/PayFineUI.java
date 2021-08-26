@@ -5,24 +5,25 @@ import java.util.Scanner;
 public class PayFineUI {
 
 
-	public static enum uI_sTaTe { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
+	public static enum uiState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };//changed uI_sTaTe to uiState
 
-	private pAY_fINE_cONTROL CoNtRoL;
+	private PayFineControl CoNtRoL;//changed pAY_fINE_cONTROL to PayFineControl
 	private Scanner input;
-	private uI_sTaTe StAtE;
+	private uiState state;//changed uI_sTaTe to uiState, StAtE to state
 
 	
-	public PayFineUI(pAY_fINE_cONTROL control) {
-		this.CoNtRoL = control;
+	public PayFineUI(PayFineControl control) {//changed pAY_fINE_cONTROL to PayFineControl
+		this.control = control;//changed CoNtRoL to control
 		input = new Scanner(System.in);
-		StAtE = uI_sTaTe.INITIALISED;
-		control.SeT_uI(this);
+		state = uiState.INITIALISED;//changed StAtE to state, uI_sTaTe to uiState
+		control.setUI(this);//changed SeT_uI to setUI
 	}
 	
 	
-	public void SeT_StAtE(uI_sTaTe state) {
-		this.StAtE = state;
+	public void setState(uiState state) {//Changed SeT_StAtE to setState, uI_sTaTe to uiState
+		this.state = state;//Changed StAtE to state, 
 	}
+
 
 
 	public void RuN() {
