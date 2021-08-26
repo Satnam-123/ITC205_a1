@@ -4,19 +4,21 @@ import java.util.Scanner;
 
 public class ReturnBookUI {
 
-	public static enum uI_sTaTe { INITIALISED, READY, INSPECTING, COMPLETED };
+	public static enum UIState { INITIALISED, READY, INSPECTING, COMPLETED };//changed uI_sTaTe to UIState
 
-	private rETURN_bOOK_cONTROL CoNtRoL;
-	private Scanner iNpUt;
-	private uI_sTaTe StATe;
+	private ReturnBookControl control;//Changed rETURN_bOOK_cONTROL to ReturnBookControl, CoNtRoL to control
+	private Scanner input;//changed iNpUt to input
+	private UIState state;//changed uI_sTaTe to UIState, StATe to state
 
 	
-	public ReturnBookUI(rETURN_bOOK_cONTROL cOnTrOL) {
-		this.CoNtRoL = cOnTrOL;
-		iNpUt = new Scanner(System.in);
-		StATe = uI_sTaTe.INITIALISED;
-		cOnTrOL.sEt_uI(this);
+	public ReturnBookUI(ReturnBookControl control) {//Changed rETURN_bOOK_cONTROL to ReturnBookControl, CoNtRoL to control
+		this.control = control;//changed CoNtRoL to control, cOnTrOL to control
+		input = new Scanner(System.in);//changed iNpUt to input
+		state = uI_sTaTe.INITIALISED;//changed StATe to state
+		control.setUi(this);//changed cOnTrOL to control, sEt_uI to setUi
 	}
+
+
 
 
 	public void RuN() {		
