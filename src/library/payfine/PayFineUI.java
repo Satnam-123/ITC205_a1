@@ -82,6 +82,7 @@ public class PayFineUI {
 	}
 
 	
+
 	private String input(String prompt) {
 		System.out.print(prompt);
 		return input.nextLine();
@@ -93,9 +94,10 @@ public class PayFineUI {
 	}	
 			
 
-	public void DiSplAY(Object object) {
+	public void display(Object object) {//changed DiSplAY to display
 		output(object);
 	}
 
 
 }
+
