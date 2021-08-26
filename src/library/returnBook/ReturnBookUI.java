@@ -21,20 +21,21 @@ public class ReturnBookUI {
 
 
 
-	public void RuN() {		
-		oUtPuT("Return Book Use Case UI\n");
+	public void run() {		//changed RuN to run
+		output("Return Book Use Case UI\n");//changed oUtPuT to output
 		
 		while (true) {
 			
-			switch (StATe) {
+			switch (state) {//changed StATe to state
 			
 			case INITIALISED:
 				break;
 				
 			case READY:
-				String BoOk_InPuT_StRiNg = iNpUt("Scan Book (<enter> completes): ");
-				if (BoOk_InPuT_StRiNg.length() == 0) 
-					CoNtRoL.sCaNnInG_cOmPlEtE();
+				String bookInputString = input("Scan Book (<enter> completes): ");//changed BoOk_InPuT_StRiNg to bookInputString, iNpUt to input
+				if (bookInputString.length() == 0) //changed BoOk_InPuT_StRiNg to bookInputString
+					control.scanningComplete();//changed CoNtRoL to control, sCaNnInG_cOmPlEtE to scanningComplete
+				
 				
 				else {
 					try {
