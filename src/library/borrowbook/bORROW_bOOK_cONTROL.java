@@ -94,34 +94,33 @@ public class BorrowBookControl {// changed bORROW_bOOK_cONTROL to BorrowBookCont
 			for (Book book : pendingList) //changed bOoK to book, pEnDiNg_LiSt to pendingList
 				ui.display(book.toString());//changed uI to ui,  DiSpLaY to display, bOoK to book
 			
-			
-			cOmPlEtEd_LiSt = new ArrayList<Loan>();
-			uI.SeT_StAtE(BorrowBookUI.uI_STaTe.FINALISING);
-			sTaTe = CONTROL_STATE.FINALISING;
+			completedList = new ArrayList<Loan>();// changed cOmPlEtEd_LiSt to completedList
+			ui.setState(BorrowBookUI.uiState.FINALISING);//changed uI to ui, SeT_StAtE to setState, uI_STaTeto uiState
+			state = ControLState.FINALISING;// changed sTaTe to state, CONTROL_STATEto controlState
 		}
 	}
 
 
-	public void CoMmIt_LoAnS() {
-		if (!sTaTe.equals(CONTROL_STATE.FINALISING)) 
+	public void commitLoans() {//changed CoMmIt_LoAnS to commitLoans
+		if (!state.equals(controlState.FINALISING)) //changed sTaTe to state, CONTROL_STATEto controlState
 			throw new RuntimeException("BorrowBookControl: cannot call commitLoans except in FINALISING state");
 			
-		for (Book B : pEnDiNg_LiSt) {
-			Loan lOaN = lIbRaRy.iSsUe_LoAn(B, mEmBeR);
-			cOmPlEtEd_LiSt.add(lOaN);			
+		for (Book B : pendingList) {//Changed pEnDiNg_LiSt to pendingList
+			Loan loan = library.issueLoan(b, member);//changed lOaN to loan, lIbRaRy to library, iSsUe_LoAn to issueLoan, B to b, mEmBeR to member
+			completedList.add(loan);		// changed 	cOmPlEtEd_LiSt to completedList, lOaN to loan
 		}
-		uI.DiSpLaY("Completed Loan Slip");
-		for (Loan LOAN : cOmPlEtEd_LiSt) 
-			uI.DiSpLaY(LOAN.toString());
+		uI.display("Completed Loan Slip");// changed uI to ui, DiSpLaY to display
+		for (Loan loan : completedList) // changed LOAN to loan, cOmPlEtEd_LiSt to completedList
+			ui.display(loan.toString());//changed uI to ui, DiSpLaY to display, LOAN to loan
 		
-		uI.SeT_StAtE(BorrowBookUI.uI_STaTe.COMPLETED);
-		sTaTe = CONTROL_STATE.COMPLETED;
+		ui.setState(BorrowBookUI.uiState.COMPLETED);// changed uI to ui, SeT_StAtE to setState, uI_STaTe to uiState
+		state = ControlState.COMPLETED;// changed sTaTe to state,CONTROL_STATE to controlState
 	}
 
 	
-	public void CaNcEl() {
-		uI.SeT_StAtE(BorrowBookUI.uI_STaTe.CANCELLED);
-		sTaTe = CONTROL_STATE.CANCELLED;
+	public void cancel() {//changed CaNcEl to cancel
+		ui.setState(BorrowBookUI.uiState.CANCELLED);//changed uI to ui, SeT_StAtE to setState, uI_STaTe to uiState
+		state = ControlState.CANCELLED;// changed sTaTe to state, CONTROL_STATE to controlState
 	}
 	
 	
