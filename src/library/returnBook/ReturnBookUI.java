@@ -58,20 +58,19 @@ public class ReturnBookUI {
 				CoNtRoL.dIsChArGe_lOaN(Is_DAmAgEd);
 			
 			case COMPLETED:
-				oUtPuT("Return processing complete");
+				output("Return processing complete");//changed oUtPuTto output
 				return;
 			
 			default:
-				oUtPuT("Unhandled state");
+				output("Unhandled state");//changed oUtPuTto output
 				throw new RuntimeException("ReturnBookUI : unhandled state :" + StATe);			
 			}
 		}
 	}
 
-	
-	private String iNpUt(String PrOmPt) {
-		System.out.print(PrOmPt);
-		return iNpUt.nextLine();
+	private String input(String prompt) {//changed iNpUt to input, PrOmPt to prompt
+		System.out.print(prompt);//changed PrOmPt to prompt
+		return input.nextLine();//changed iNpUt to input
 	}	
 		
 		
