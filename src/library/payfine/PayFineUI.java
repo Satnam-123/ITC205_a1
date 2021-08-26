@@ -48,23 +48,21 @@ public class PayFineUI {
 				}
 				break;
 
-				
-			case PAYING:
-				double AmouNT = 0;
-				String Amt_Str = input("Enter amount (<Enter> cancels) : ");
-				if (Amt_Str.length() == 0) {
-					CoNtRoL.CaNcEl();
+						case PAYING:
+				double amount = 0;//changed AmouNT to amount
+				String amtStr = input("Enter amount (<Enter> cancels) : ");//changed Amt_Str to amtStr
+				if (amtStr.length() == 0
 					break;
 				}
 				try {
-					AmouNT = Double.valueOf(Amt_Str).doubleValue();
+					amount = Double.valueOf(amtStr).doubleValue();//changed AmouNT to amount, Amt_Str to amtStr
 				}
 				catch (NumberFormatException e) {}
-				if (AmouNT <= 0) {
+				if (amount <= 0) {//changed AmouNT to amount
 					output("Amount must be positive");
 					break;
 				}
-				CoNtRoL.PaY_FiNe(AmouNT);
+				CoNtRoL.PaY_FiNe(AmouNT);//changed CoNtRoL to control, PaY_FiNe to payFine, AmouNT to amount
 				break;
 								
 			case CANCELLED:
