@@ -26,27 +26,28 @@ public class PayFineUI {
 
 
 
-	public void RuN() {
+	public void run() {//changed RuN to run
 		output("Pay Fine Use Case UI\n");
 		
 		while (true) {
 			
-			switch (StAtE) {
+			switch (state) {//changed StAtE to state
 			
 			case READY:
-				String Mem_Str = input("Swipe member card (press <enter> to cancel): ");
-				if (Mem_Str.length() == 0) {
-					CoNtRoL.CaNcEl();
+				String memStr = input("Swipe member card (press <enter> to cancel): ");//changed Mem_Str to memStr
+				if (memStr.length() == 0) {//changed Mem_Str to memStr
+					control.cancel();//changed CoNtRoL to control, CaNcEl to cancel
 					break;
 				}
 				try {
-					int Member_ID = Integer.valueOf(Mem_Str).intValue();
-					CoNtRoL.CaRd_sWiPeD(Member_ID);
+					int memberId = Integer.valueOf(memStr).intValue();//changed Member_ID to memberId, Mem_Str to memStr
+					control.cardSwiped(memberId);//changed CoNtRoL to control, CaRd_sWiPeD to cardSwiped, Member_ID to memberId
 				}
 				catch (NumberFormatException e) {
 					output("Invalid memberId");
 				}
 				break;
+
 				
 			case PAYING:
 				double AmouNT = 0;
