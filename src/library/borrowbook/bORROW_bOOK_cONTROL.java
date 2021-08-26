@@ -17,19 +17,20 @@ public class BorrowBookControl {// changed bORROW_bOOK_cONTROL to BorrowBookCont
 	private ControlState state;// changed CONTROL_STATE to ControlState, sTaTe to state
 	
 	
-	private List<Book> pEnDiNg_LiSt;
-	private List<Loan> cOmPlEtEd_LiSt;
-	private Book bOoK;
+	
+	private List<Book> pendingList;// changed pEnDiNg_LiSt to pendingList
+	private List<Loan> completedList;//changed cOmPlEtEd_LiSt to completedList
+	private Book book;// changed bOoK to book
 	
 	
-	public bORROW_bOOK_cONTROL() {
-		this.lIbRaRy = Library.GeTiNsTaNcE();
-		sTaTe = CONTROL_STATE.INITIALISED;
+	public BorrowBookControl() {// changed bORROW_bOOK_cONTROL to BorrowBookControl
+		this.lIbRaRy = Library.getInstance();// changed lIbRaRy to library, GeTiNsTaNcE to getInstance
+		state = ControlState.INITIALISED;// changed sTaTe to state, changed CONTROL_STATE to ControlState
 	}
 	
 
-	public void SeT_Ui(BorrowBookUI Ui) {
-		if (!sTaTe.equals(CONTROL_STATE.INITIALISED)) 
+	public void setUI(BorrowBookUI ui) {//changed SeT_Ui to setUI, Ui to ui
+		if (!state.equals(ControlState.INITIALISED)) // changed sTaTe to state, changed CONTROL_STATE to ControlState
 			throw new RuntimeException("BorrowBookControl: cannot call setUI except in INITIALISED state");
 			
 		this.uI = Ui;
