@@ -45,27 +45,28 @@ public class payFineControl {//change pAY_fINE_cONTROL to payFineControl
 	}
 
 	
-	
-	public void CaNcEl() {
-		Ui.SeT_StAtE(PayFineUI.uI_sTaTe.CANCELLED);
-		StAtE = cOnTrOl_sTaTe.CANCELLED;
+	public void cancel() {//changed CaNcEl to cancel
+		ui.setState(PayFineUI.uiState.CANCELLED);//changed Uito ui, SeT_StAtE to setState, uI_sTaTe to uiState
+		state = ControlState.CANCELLED;//changed StAtE to state, cOnTrOl_sTaTe to ControlState
 	}
 
 
-	public double PaY_FiNe(double AmOuNt) {
-		if (!StAtE.equals(cOnTrOl_sTaTe.PAYING)) 
+	public double PaY_FiNe(double AmOuNt) {//changed PaY_FiNeto payFine,AmOuNtto amount 
+		if (!StAtE.equals(cOnTrOl_sTaTe.PAYING)) //changed StAtE to state, cOnTrOl_sTaTeto ControlState
 			throw new RuntimeException("PayFineControl: cannot call payFine except in PAYING state");
 			
-		double ChAnGe = MeMbEr.PaY_FiNe(AmOuNt);
-		if (ChAnGe > 0) 
-			Ui.DiSplAY(String.format("Change: $%.2f", ChAnGe));
+		double ChAnGe = MeMbEr.PaY_FiNe(AmOuNt);//changed ChAnGe to change , MeMbErto member, PaY_FiNe to payFine
+		if (change > 0) //changed ChAnGe to change
+			ui.display(String.format("Change: $%.2f", change)); //changed Ui to ui, DiSplAY to display ChAnGe to change
 		
-		Ui.DiSplAY(MeMbEr.toString());
-		Ui.SeT_StAtE(PayFineUI.uI_sTaTe.COMPLETED);
-		StAtE = cOnTrOl_sTaTe.COMPLETED;
-		return ChAnGe;
+		ui.display(member.toString());//changed Ui to ui, DiSplAY to display MeMbEr to member
+		ui.setState(PayFineUI.uiState.COMPLETED);//changed Ui to ui, SeT_StAtE to setState, uI_sTaTe TO uiState
+		state = ControlState.COMPLETED;//changed StAtE to state, cOnTrOl_sTaTe to ControlState
+		return change;//changed ChAnGe to change
 	}
 	
 
+
+}
 
 }
