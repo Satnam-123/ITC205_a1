@@ -48,26 +48,26 @@ public class BorrowBookControl {// changed bORROW_bOOK_cONTROL to BorrowBookCont
 			ui.display("Invalid memberId");//changed uI to ui, DiSpLaY to display
 			return;
 		}
-		if (lIbRaRy.cAn_MeMbEr_BoRrOw(mEmBeR)) {
-			pEnDiNg_LiSt = new ArrayList<>();
-			uI.SeT_StAtE(BorrowBookUI.uI_STaTe.SCANNING);
-			sTaTe = CONTROL_STATE.SCANNING; 
+		if (library.canMemberBorrow(member)) {// changed lIbRaRy to library, cAn_MeMbEr_BoRrOw to canMemberBorrow, mEmBeR to member
+			pendingList = new ArrayList<>();// changed pEnDiNg_LiStto pendingList
+			ui.setState(BorrowBookUI.uiState.SCANNING);// changed uI to ui , SeT_StAtE to setState, uI_STaTeto uiState
+			state = ControlState.SCANNING; //changed sTaTe to state , CONTROL_STATE to controlState
 		}
 		else {
-			uI.DiSpLaY("Member cannot borrow at this time");
-			uI.SeT_StAtE(BorrowBookUI.uI_STaTe.RESTRICTED); 
+			ui.display("Member cannot borrow at this time");//changed uI to ui, DiSpLaY to display
+			uI.setState(BorrowBookUI.uI_STaTe.RESTRICTED); //changed uI to ui, SeT_StAtE to setState
 		}
 	}
 	
 	
-	public void ScAnNeD(int bOoKiD) {
-		bOoK = null;
-		if (!sTaTe.equals(CONTROL_STATE.SCANNING)) 
+	public void scanned(int bookId) {//changed ScAnNeD to scanned, bOoKiD to bookId
+		book = null;// changed bOoK to book
+		if (!state.equals(controlState.SCANNING)) //changed sTaTe to state, CONTROL_STATE to controlState
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 			
-		bOoK = lIbRaRy.gEt_BoOk(bOoKiD);
-		if (bOoK == null) {
-			uI.DiSpLaY("Invalid bookId");
+		book = library.getBook(bookId);//changed bOoK to book, lIbRaRy to library, gEt_BoOk to getBook, bOoKiD to bookId
+		if (book == null) {//changed bOoK to book
+			ui.display("Invalid bookId");// changed uI to ui, DiSpLaY to display
 			return;
 		}
 		if (!bOoK.iS_AvAiLaBlE()) {
