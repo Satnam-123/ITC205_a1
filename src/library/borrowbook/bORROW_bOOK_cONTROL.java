@@ -7,14 +7,15 @@ import library.entities.Library;
 import library.entities.Loan;
 import library.entities.Member;
 
-public class bORROW_bOOK_cONTROL {
+public class BorrowBookControl {// changed bORROW_bOOK_cONTROL to BorrowBookControl
 	
-	private BorrowBookUI uI;
+	private BorrowBookUI ui;// changed uI to ui
 	
-	private Library lIbRaRy;
-	private Member mEmBeR;
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-	private CONTROL_STATE sTaTe;
+	private Library library;// changed lIbRaRy to library
+	private Member member;//changed mEmBeR to member
+	private enum ControlState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };// changed CONTROL_STATE to ControlState
+	private ControlState state;// changed CONTROL_STATE to ControlState, sTaTe to state
+	
 	
 	private List<Book> pEnDiNg_LiSt;
 	private List<Loan> cOmPlEtEd_LiSt;
