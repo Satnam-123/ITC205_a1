@@ -13,19 +13,19 @@ public class payFineControl {//change pAY_fINE_cONTROL to payFineControl
 
 
 
-	public pAY_fINE_cONTROL() {
-		this.LiBrArY = Library.GeTiNsTaNcE();
-		StAtE = cOnTrOl_sTaTe.INITIALISED;
+	public payFineControl() {////change pAY_fINE_cONTROL to payFineControl
+		this.library = Library.getInstance();//changed LiBrArY to library, GeTiNsTaNcE to getInstance
+		StAtE = ControlState.INITIALISED;//changed StAtE to state, cOnTrOl_sTaTeto ControlState 
 	}
 	
 	
-	public void SeT_uI(PayFineUI uI) {
-		if (!StAtE.equals(cOnTrOl_sTaTe.INITIALISED)) {
+	public void setUI(PayFineUI ui) {//changed SeT_uI to setUI, uITO ui
+		if (!state.equals(ControlState.INITIALISED)) {//changed StAtEto state, cOnTrOl_sTaTe to ControlState
 			throw new RuntimeException("PayFineControl: cannot call setUI except in INITIALISED state");
 		}	
-		this.Ui = uI;
-		uI.SeT_StAtE(PayFineUI.uI_sTaTe.READY);
-		StAtE = cOnTrOl_sTaTe.READY;		
+		this.ui = ui;//changed Ui to ui,uI to ui 
+		ui.setState(PayFineUI.uiState.READY);//changed Ui to ui,uI to ui , SeT_StAtE to setState, uI_sTaTe to uiState
+		state = ControlState.READY;//	changed StAtE to state, cOnTrOl_sTaTe to ControlState	
 	}
 
 
