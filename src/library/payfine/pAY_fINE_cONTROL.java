@@ -29,20 +29,21 @@ public class payFineControl {//change pAY_fINE_cONTROL to payFineControl
 	}
 
 
-	public void CaRd_sWiPeD(int MeMbEr_Id) {
-		if (!StAtE.equals(cOnTrOl_sTaTe.READY)) 
+	public void cardSwiped(int memberId) {// changed CaRd_sWiPeD to cardSwiped, MeMbEr_Id to memberId
+		if (!state.equals(ControlState.READY)) //changed StAtE to state, cOnTrOl_sTaTe to ControlState
 			throw new RuntimeException("PayFineControl: cannot call cardSwiped except in READY state");
 			
-		MeMbEr = LiBrArY.gEt_MeMbEr(MeMbEr_Id);
+		member = library.getMember(memberId);//changed MeMbEr to member, LiBrArY to library, gEt_MeMbEr to getMember, MeMbEr_Id to memberId 
 		
-		if (MeMbEr == null) {
-			Ui.DiSplAY("Invalid Member Id");
+		if (member == null) {//changed MeMbEr to member
+			ui.display("Invalid Member Id");//changed Ui to ui, DiSplAY to display
 			return;
 		}
-		Ui.DiSplAY(MeMbEr.toString());
-		Ui.SeT_StAtE(PayFineUI.uI_sTaTe.PAYING);
-		StAtE = cOnTrOl_sTaTe.PAYING;
+		ui.display(member.toString());////changed Ui to ui, DiSplAY to display, MeMbEr to member
+		ui.setState(PayFineUI.uiState.PAYING);//changed Ui to ui, SeT_StAtE to setState, uI_sTaTe to uiState
+		state = ControlState.PAYING;//changed StAtE to state, cOnTrOl_sTaTe to ControlState
 	}
+
 	
 	
 	public void CaNcEl() {
