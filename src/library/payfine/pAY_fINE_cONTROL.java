@@ -2,14 +2,15 @@ package library.payfine;
 import library.entities.Library;
 import library.entities.Member;
 
-public class pAY_fINE_cONTROL {
+public class payFineControl {//change pAY_fINE_cONTROL to payFineControl
 	
-	private PayFineUI Ui;
-	private enum cOnTrOl_sTaTe { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
-	private cOnTrOl_sTaTe StAtE;
+	private PayFineUI ui;//changed Ui to ui
+	private enum ControlState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };//chnaged cOnTrOl_sTaTe to ControlState
+	private ControlState state;//chnaged cOnTrOl_sTaTe to ControlState, StAtE to state
 	
-	private Library LiBrArY;
-	private Member MeMbEr;
+	private Library library;// changed LiBrArY to library
+	private Member member;// changed MeMbEr to member
+
 
 
 	public pAY_fINE_cONTROL() {
