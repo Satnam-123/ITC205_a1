@@ -39,20 +39,21 @@ public class ReturnBookUI {
 				
 				else {
 					try {
-						int Book_Id = Integer.valueOf(BoOk_InPuT_StRiNg).intValue();
-						CoNtRoL.bOoK_sCaNnEd(Book_Id);
+						int bookId = Integer.valueOf(bookInputString).intValue();// changed Book_Id to bookId, BoOk_InPuT_StRiNg to bookInputString
+						control.bookScanned(bookId);//changed CoNtRoL to control, bOoK_sCaNnEd to bookScanned, Book_Id to bookId
 					}
 					catch (NumberFormatException e) {
-						oUtPuT("Invalid bookId");
+						output("Invalid bookId");//changed oUtPuT to output
 					}					
 				}
 				break;				
 				
 			case INSPECTING:
-				String AnS = iNpUt("Is book damaged? (Y/N): ");
-				boolean Is_DAmAgEd = false;
-				if (AnS.toUpperCase().equals("Y")) 					
-					Is_DAmAgEd = true;
+				String ans = input("Is book damaged? (Y/N): ");//changed AnS to ans, iNpUt to input
+				boolean isDamaged = false;//changed Is_DAmAgEd to isDamaged
+				if (ans.toUpperCase().equals("Y")) //changed AnS to ans					
+					isDamaged = true;//changed Is_DAmAgEd to isDamaged
+				
 				
 				CoNtRoL.dIsChArGe_lOaN(Is_DAmAgEd);
 			
