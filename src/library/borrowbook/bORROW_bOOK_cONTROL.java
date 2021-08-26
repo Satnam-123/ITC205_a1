@@ -70,29 +70,30 @@ public class BorrowBookControl {// changed bORROW_bOOK_cONTROL to BorrowBookCont
 			ui.display("Invalid bookId");// changed uI to ui, DiSpLaY to display
 			return;
 		}
-		if (!bOoK.iS_AvAiLaBlE()) {
-			uI.DiSpLaY("Book cannot be borrowed");
+		if (!book.isAvailable()) {// changed bOoK to book, iS_AvAiLaBlE to isAvailable
+			ui.display("Book cannot be borrowed");//changed uI to ui, DiSpLaY to display
 			return;
 		}
-		pEnDiNg_LiSt.add(bOoK);
-		for (Book B : pEnDiNg_LiSt) 
-			uI.DiSpLaY(B.toString());
+		pendingList.add(book);// changed pEnDiNg_LiSt to pendingList, bOoK to book
+		for (Book B : pendingList) // changed pEnDiNg_LiSt to pendingList
+			uI.display(B.toString());//changed uI to ui , DiSpLaY to display
 		
-		if (lIbRaRy.gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(mEmBeR) - pEnDiNg_LiSt.size() == 0) {
-			uI.DiSpLaY("Loan limit reached");
-			CoMpLeTe();
+		if (library.getNumberOfLoansRemainingForMember(member) - pendingList.size() == 0) {// changed lIbRaRy to library, gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr to getNumberOfLoansRemainingForMember, mEmBeR to member, pEnDiNg_LiSt to pendingList
+			ui.display("Loan limit reached");// changed uI to ui, DiSpLaYto display
+			complete();//changed CoMpLeTe to complete
 		}
 	}
 	
 	
-	public void CoMpLeTe() {
-		if (pEnDiNg_LiSt.size() == 0) 
-			CaNcEl();
+	public void complete() {//changed CoMpLeTe to complete
+		if (pendingList.size() == 0) //changed pEnDiNg_LiSt to pendingList
+			cancel();// changed CaNcEl to cancel
 		
 		else {
-			uI.DiSpLaY("\nFinal Borrowing List");
-			for (Book bOoK : pEnDiNg_LiSt) 
-				uI.DiSpLaY(bOoK.toString());
+			ui.display("\nFinal Borrowing List");// changed uI to ui, DiSpLaY to display
+			for (Book book : pendingList) //changed bOoK to book, pEnDiNg_LiSt to pendingList
+				ui.display(book.toString());//changed uI to ui,  DiSpLaY to display, bOoK to book
+			
 			
 			cOmPlEtEd_LiSt = new ArrayList<Loan>();
 			uI.SeT_StAtE(BorrowBookUI.uI_STaTe.FINALISING);
