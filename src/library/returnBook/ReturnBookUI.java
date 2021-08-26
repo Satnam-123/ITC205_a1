@@ -74,18 +74,17 @@ public class ReturnBookUI {
 	}	
 		
 		
-	private void oUtPuT(Object ObJeCt) {
-		System.out.println(ObJeCt);
+	private void output(Object object) {//changed oUtPuT to output,  ObJeCt to object
+		System.out.println(ObJeCt);//changed ObJeCt to object
 	}
 	
 			
-	public void DiSpLaY(Object object) {
-		oUtPuT(object);
+	public void display(Object object) {//changed DiSpLaY to display
+		output(object);//changed oUtPuT to output
 	}
 	
-	public void sEt_sTaTe(uI_sTaTe state) {
-		this.StATe = state;
+	public void setState(uiState state) {//changed sEt_sTaTe to setState, uI_sTaTe to uiState
+		this.StATe = state;//changed StATe to state
 	}
-
 	
 }
