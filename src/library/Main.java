@@ -133,23 +133,23 @@ public class Main {
 		output("\nEnded\n");
 	}	
 	
-	private static void PAY_FINES() {
-		new PayFineUI(new pAY_fINE_cONTROL()).RuN();		
+	private static void payFines() {//changed PAY_FINES to payFines
+		new PayFineUI(new PayFineControl()).run();//changed pAY_fINE_cONTROL to PayFineControl, RuN to run		
 	}
 
 
-	private static void LIST_CURRENT_LOANS() {
+	private static void listCurrentLoans() {//changed LIST_CURRENT_LOANS to listCurrentLoans
 		output("");
-		for (Loan loan : LIB.lISt_CuRrEnT_LoAnS()) {
+		for (Loan loan : lib.listCurrentLoans()) {//changed LIB to lib , lISt_CuRrEnT_LoAnSto listCurrentLoans
 			output(loan + "\n");
 		}		
 	}
 
 
 
-	private static void LIST_BOOKS() {
+	private static void listBooks() {//changed LIST_BOOKS to listBooks
 		output("");
-		for (Book book : LIB.lIsT_BoOkS()) {
+		for (Book book : lib.listBooks()) {// changed LIB to lib, lIsT_BoOkS to listBooks
 			output(book + "\n");
 		}		
 	}
