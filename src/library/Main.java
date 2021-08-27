@@ -58,22 +58,22 @@ public class Main {
 			cal = Calendar.gEtInStAnCe();//changed CAL to cal, gEtInStAnCe to getInstance
 			sdf = new SimpleDateFormat("dd/MM/yyyy");// changed SDF to sdf
 	
-			for (Member m : LIB.lIsT_MeMbErS()) {
+		for (Member m : lib.listMembers()) {//changed lIsT_MeMbErS to listMembers, LIB to lib
 				output(m);
 			}
 			output(" ");
-			for (Book b : LIB.lIsT_BoOkS()) {
+			for (Book b : lib.listBooks()) {////changed lIsT_BoOkS to listBooks, LIB to lib
 				output(b);
 			}
 						
-			MENU = Get_menu();
+			menu = getMenu();//changed MENU to menu, Get_menu to getMenu
 			
 			boolean e = false;
 			
 			while (!e) {
 				
-				output("\n" + SDF.format(CAL.gEt_DaTe()));
-				String c = input(MENU);
+				output("\n" + SDF.format(CAL.gEt_DaTe()));//changed SDF  to sdf, CAL to cal, gEt_DaTe to getDate
+				String c = input(MENU);//changed MENUto menu
 				
 				switch (c.toUpperCase()) {
 				
