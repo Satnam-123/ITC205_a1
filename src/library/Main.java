@@ -205,13 +205,14 @@ public class Main {
 
 	
 	private static void ADD_MEMBER() {
+	private static void addMember() {//changed ADD_MEMBER to addMember
 		try {
-			String LaSt_NaMe = input("Enter last name: ");
-			String FiRsT_NaMe  = input("Enter first name: ");
-			String EmAiL_AdDrEsS = input("Enter email address: ");
-			int PhOnE_NuMbEr = Integer.valueOf(input("Enter phone number: ")).intValue();
-			Member MeMbEr = LIB.aDd_MeMbEr(LaSt_NaMe, FiRsT_NaMe, EmAiL_AdDrEsS, PhOnE_NuMbEr);
-			output("\n" + MeMbEr + "\n");
+			String lastName = input("Enter last name: ");//changed LaSt_NaMe to lastName
+			String firstName  = input("Enter first name: ");//changed FiRsT_NaMe to firstName
+			String emailAddress = input("Enter email address: ");//changed EmAiL_AdDrEsSto emailAdress
+			int phoneNumber = Integer.valueOf(input("Enter phone number: ")).intValue();//changed PhOnE_NuMbEr to phoneNumber
+			Member member = lib.addMember(lastName, firstName, emailAddress, phoneNumber);//changed MeMbEr to member, LIB to lib, aDd_MeMbEr to addMember, LaSt_NaMe to lastName, FiRsT_NaMe to firstName, EmAiL_AdDrEsS to emailAddress, PhOnE_NuMbEr to phoneNumber
+			output("\n" + MeMbEr + "\n");//changed MeMbEr to member
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid phone number\n");
@@ -222,7 +223,7 @@ public class Main {
 
 	private static String input(String prompt) {
 		System.out.print(prompt);
-		return IN.nextLine();
+		return IN.nextLine();//changed IN to in
 	}
 	
 	
@@ -232,4 +233,6 @@ public class Main {
 	}
 
 	
+}
+
 }
