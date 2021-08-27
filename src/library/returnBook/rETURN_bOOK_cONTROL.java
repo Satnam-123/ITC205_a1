@@ -13,20 +13,19 @@ public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookContr
 	private Loan currentLoan;//changed CurrENT_loan to currentLoan
 	
 	
-
-	public rETURN_bOOK_cONTROL() {
-		this.lIbRaRy = Library.GeTiNsTaNcE();
-		sTaTe = cOnTrOl_sTaTe.INITIALISED;
+public ReturnBookControl() {//changed rETURN_bOOK_cONTROL to ReturnBookControl
+		this.library = Library.getInstance();//changed lIbRaRy to library, GeTiNsTaNcE to getInstance
+		state = ControlState.INITIALISED;//changed sTaTe to state, cOnTrOl_sTaTe to ControlState
 	}
 	
 	
-	public void sEt_uI(ReturnBookUI uI) {
-		if (!sTaTe.equals(cOnTrOl_sTaTe.INITIALISED)) 
+	public void setUi(ReturnBookUI uI) {//changed sEt_uI to setUi, uI to ui
+		if (!state.equals(ControlState.INITIALISED)) //changed sTaTe to state, cOnTrOl_sTaTe to ControlState
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
 		
-		this.Ui = uI;
-		uI.sEt_sTaTe(ReturnBookUI.uI_sTaTe.READY);
-		sTaTe = cOnTrOl_sTaTe.READY;		
+		this.ui = ui;//changed Ui to ui,uI to ui 
+		ui.setState(ReturnBookUI.uiState.READY);//changed uI to ui, sEt_sTaTe to setState , uI_sTaTe to uiState
+		state = ControlState.READY;//	changed sTaTe to state, cOnTrOl_sTaTe to ControlState
 	}
 
 
