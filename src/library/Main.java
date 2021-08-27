@@ -19,12 +19,11 @@ import library.returnBook.rETURN_bOOK_cONTROL;
 
 public class Main {
 	
-	private static Scanner IN;
-	private static Library LIB;
-	private static String MENU;
-	private static Calendar CAL;
-	private static SimpleDateFormat SDF;
-	
+	private static Scanner IN;//changed IN to in
+	private static Library LIB;//changed LIB to lib
+	private static String MENU;//changed MENU to menu
+	private static Calendar CAL;//changed CAL to cal
+	private static SimpleDateFormat SDF;//changed SDF to sdf
 	
 	private static String Get_menu() {
 		StringBuilder sb = new StringBuilder();
@@ -54,10 +53,10 @@ public class Main {
 
 	public static void main(String[] args) {		
 		try {			
-			IN = new Scanner(System.in);
-			LIB = Library.GeTiNsTaNcE();
-			CAL = Calendar.gEtInStAnCe();
-			SDF = new SimpleDateFormat("dd/MM/yyyy");
+			in = new Scanner(System.in);//changed IN to in
+			lib = Library.getInstance();//changed LIB  to lib, GeTiNsTaNcEto getInstance
+			cal = Calendar.gEtInStAnCe();//changed CAL to cal, gEtInStAnCe to getInstance
+			sdf = new SimpleDateFormat("dd/MM/yyyy");// changed SDF to sdf
 	
 			for (Member m : LIB.lIsT_MeMbErS()) {
 				output(m);
@@ -135,7 +134,8 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void PAY_FINES() {
+	
+	private static void PAY_FINES() {
 		new PayFineUI(new pAY_fINE_cONTROL()).RuN();		
 	}
 
