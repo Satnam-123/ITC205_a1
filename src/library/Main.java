@@ -180,12 +180,12 @@ public class Main {
 		new FixBookUI(new FixBookControl()).run();//changed fIX_bOOK_cONTROL to FixBookControl, RuN to run		
 	}
 
-	private static void INCREMENT_DATE() {
+	private static void incrementDate() {//changed INCREMENT_DATE to incrementDate
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
-			CAL.incrementDate(days);
-			LIB.cHeCk_CuRrEnT_LoAnS();
-			output(SDF.format(CAL.gEt_DaTe()));
+			cal.incrementDate(days);//changed CAL to cal
+			lib.checkControlLoans();//changed LIB to lib, cHeCk_CuRrEnT_LoAnS to checkControlLoans
+			output(sdf.format(cal.getDate()));//changed SDF to sdf, CAL to cal,gEt_DaTe to getDate 
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid number of days\n");
