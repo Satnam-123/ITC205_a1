@@ -29,19 +29,20 @@ public ReturnBookControl() {//changed rETURN_bOOK_cONTROL to ReturnBookControl
 	}
 
 
-	public void bOoK_sCaNnEd(int bOoK_iD) {
-		if (!sTaTe.equals(cOnTrOl_sTaTe.READY)) 
+	public void bookScanned(int bookId) {//changed bOoK_sCaNnEd to bookScanned, bOoK_iD to bookId
+		if (!state.equals(ControlState.READY)) //changed sTaTe to state, cOnTrOl_sTaTe to ControlState
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
 		
-		Book cUrReNt_bOoK = lIbRaRy.gEt_BoOk(bOoK_iD);
-		
-		if (cUrReNt_bOoK == null) {
-			Ui.DiSpLaY("Invalid Book Id");
+		Book currentBook = library.getBook(bookId);//changed cUrReNt_bOoK to currentBook, lIbRaRy to library, gEt_BoOk to getBook, bOoK_iD to bookId 
+		 
+		if (currentBook == null) {//changed cUrReNt_bOoK to currentBook
+			ui.display("Invalid Book Id");//changed Ui to ui , DiSpLaY to display
 			return;
 		}
-		if (!cUrReNt_bOoK.iS_On_LoAn()) {
-			Ui.DiSpLaY("Book has not been borrowed");
+		if (!currentBook.isOnLoan()) {//changed cUrReNt_bOoK to currentBook, iS_On_LoAn to isOnLoan
+			ui.display("Book has not been borrowed");// changed Ui to ui, DiSpLaYto display
 			return;
+		}		
 		}		
 		CurrENT_loan = lIbRaRy.GeT_LoAn_By_BoOkId(bOoK_iD);	
 		double Over_Due_Fine = 0.0;
