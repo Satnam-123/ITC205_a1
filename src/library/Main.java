@@ -78,33 +78,32 @@ public class Main {
 				switch (c.toUpperCase()) {
 				
 				case "M": 
-					ADD_MEMBER();
+					addMember();//changed ADD_MEMBERto addMember
 					break;
 					
 				case "LM": 
-					LIST_MEMBERS();
+					listMembers();//changed LIST_MEMBERS to listMembers
 					break;
 					
 				case "B": 
-					ADD_BOOK();
+					addBook();//changed ADD_BOOK to addBook
 					break;
 					
 				case "LB": 
-					LIST_BOOKS();
+					listBooks();//changed LIST_BOOKS to listBooks
 					break;
 					
 				case "FB": 
-					FIX_BOOKS();
+					fixBooks();//changed FIX_BOOKSto fixBooks
 					break;
 					
 				case "L": 
-					BORROW_BOOK();
+					borrowbook();//changed BORROW_BOOK to borrowbook
 					break;
 					
 				case "R": 
-					RETURN_BOOK();
+					returnBook();//changed RETURN_BOOK to returnBook
 					break;
-					
 				case "LL": 
 					LIST_CURRENT_LOANS();
 					break;
