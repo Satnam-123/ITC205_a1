@@ -156,29 +156,29 @@ public class Main {
 
 
 
-	private static void LIST_MEMBERS() {
+	
+	private static void listMembers() {//changed LIST_MEMBERS to listMembers
 		output("");
-		for (Member member : LIB.lIsT_MeMbErS()) {
+		for (Member member : lib.listMembers()) {//changed LIB to lib ,lIsT_MeMbErS to listMembers 
 			output(member + "\n");
 		}		
 	}
 
 
 
-	private static void BORROW_BOOK() {
-		new BorrowBookUI(new bORROW_bOOK_cONTROL()).RuN();		
+	private static void borrowBook() {//changed BORROW_BOOK to borrowBook
+		new BorrowBookUI(new borrowBookControl()).run();	//changed bORROW_bOOK_cONTROL to borrowBookControl, RuN to run	
 	}
 
 
-	private static void RETURN_BOOK() {
-		new ReturnBookUI(new rETURN_bOOK_cONTROL()).RuN();		
+	private static void returnBook() {//changed RETURN_BOOK to returnBook
+		new ReturnBookUI(new returnBookControl()).run();	//chnaged rETURN_bOOK_cONTROL to returnBookControl, RuN to run	
 	}
 
 
-	private static void FIX_BOOKS() {
-		new FixBookUI(new fIX_bOOK_cONTROL()).RuN();		
+	private static void fixBooks() {//changed FIX_BOOKS to fixBooks
+		new FixBookUI(new FixBookControl()).run();//changed fIX_bOOK_cONTROL to FixBookControl, RuN to run		
 	}
-
 
 	private static void INCREMENT_DATE() {
 		try {
