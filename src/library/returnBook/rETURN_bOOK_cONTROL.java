@@ -61,23 +61,24 @@ public ReturnBookControl() {//changed rETURN_bOOK_cONTROL to ReturnBookControl
 	}
 
 
-	public void sCaNnInG_cOmPlEtE() {
-		if (!sTaTe.equals(cOnTrOl_sTaTe.READY)) 
+	public void scanningComplete() {//changed sCaNnInG_cOmPlEtE to scanningComplete
+		if (!state.equals(ControlState.READY)) //changed sTaTe to state, cOnTrOl_sTaTe to ControlState
 			throw new RuntimeException("ReturnBookControl: cannot call scanningComplete except in READY state");
 			
-		Ui.sEt_sTaTe(ReturnBookUI.uI_sTaTe.COMPLETED);		
+		ui.setState(ReturnBookUI.uiState.COMPLETED);//changed Ui to ui, sEt_sTaTe to setStae, uI_sTaTe to uiState		
 	}
 
 
-	public void dIsChArGe_lOaN(boolean iS_dAmAgEd) {
-		if (!sTaTe.equals(cOnTrOl_sTaTe.INSPECTING)) 
+	public void dischargeLoan(boolean isDamaged) {//changed dIsChArGe_lOaN to dischargeLoan, iS_dAmAgEd to isDamaged
+		if (!state.equals(ControlState.INSPECTING)) //changed sTaTe to state, cOnTrOl_sTaTe to ControlState
 			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
 		
-		lIbRaRy.DiScHaRgE_LoAn(CurrENT_loan, iS_dAmAgEd);
-		CurrENT_loan = null;
-		Ui.sEt_sTaTe(ReturnBookUI.uI_sTaTe.READY);
-		sTaTe = cOnTrOl_sTaTe.READY;				
+		library.dischargeLoan(currentLoan, isDamaged);//changed lIbRaRy to library, DiScHaRgE_LoAn to dischargeLoan, CurrENT_loan to currentLoan, iS_dAmAgEd to isDamaged
+		currentLoan = null;//changed CurrENT_loan to currentLoan
+		ui.setStae(ReturnBookUI.uiState.READY);//changed Ui to ui, sEt_sTaTeto setState, uI_sTaTe to uiState
+		state = ControlState.READY;	//changed sTaTe to state, cOnTrOl_sTaTe to ControlState			
 	}
+
 
 
 }
