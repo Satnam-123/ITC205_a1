@@ -105,15 +105,15 @@ public class Main {
 					returnBook();//changed RETURN_BOOK to returnBook
 					break;
 				case "LL": 
-					LIST_CURRENT_LOANS();
+					listCurrentLoans();//changed LIST_CURRENT_LOANS to listCurrentLoans
 					break;
 					
 				case "P": 
-					PAY_FINES();
+					payFines();//changed PAY_FINES to payFines
 					break;
 					
 				case "T": 
-					INCREMENT_DATE();
+					incrementDate();//changed INCREMENT_DATE to incrementDate
 					break;
 					
 				case "Q": 
@@ -132,7 +132,6 @@ public class Main {
 		}		
 		output("\nEnded\n");
 	}	
-
 	
 	private static void PAY_FINES() {
 		new PayFineUI(new pAY_fINE_cONTROL()).RuN();		
