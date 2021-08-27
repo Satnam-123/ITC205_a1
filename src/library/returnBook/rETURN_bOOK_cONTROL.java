@@ -3,14 +3,15 @@ import library.entities.Book;
 import library.entities.Library;
 import library.entities.Loan;
 
-public class rETURN_bOOK_cONTROL {
+public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookControl
 
 	private ReturnBookUI Ui;
-	private enum cOnTrOl_sTaTe { INITIALISED, READY, INSPECTING };
-	private cOnTrOl_sTaTe sTaTe;
+	private enum ControlState { INITIALISED, READY, INSPECTING };//changed cOnTrOl_sTaTe to ControlState
+	private ControlState state;//changed cOnTrOl_sTaTe to ControlState, sTaTe to state
 	
-	private Library lIbRaRy;
-	private Loan CurrENT_loan;
+	private Library library;//changed lIbRaRy to library
+	private Loan currentLoan;//changed CurrENT_loan to currentLoan
+	
 	
 
 	public rETURN_bOOK_cONTROL() {
