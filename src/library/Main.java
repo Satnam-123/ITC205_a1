@@ -193,13 +193,13 @@ public class Main {
 	}
 
 
-	private static void ADD_BOOK() {
+	private static void addBook() {//changed ADD_BOOK to addBook
 		
-		String AuThOr = input("Enter author: ");
-		String TiTlE  = input("Enter title: ");
-		String CaLl_NuMbEr = input("Enter call number: ");
-		Book BoOk = LIB.aDd_BoOk(AuThOr, TiTlE, CaLl_NuMbEr);
-		output("\n" + BoOk + "\n");
+		String author = input("Enter author: ");//chnaged AuThOr to author
+		String title  = input("Enter title: ");//changed TiTlE to title
+		String callNumber = input("Enter call number: ");//changed CaLl_NuMbEr to callNumber
+		Book book = lib.addBook(author, title, callNumber);//changed BoOkto book, LIBto lib, aDd_BoOk to addBook, AuThOr to author, TiTlE to title,CaLl_NuMbEr to callNumber 
+		output("\n" + book + "\n");//changed BoOkto book
 		
 	}
 
