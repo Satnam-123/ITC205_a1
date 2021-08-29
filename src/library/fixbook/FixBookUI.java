@@ -1,89 +1,93 @@
-package library.fixbook;
+package package library.fixbook;
 import java.util.Scanner;
 
 
 public class FixBookUI {
 
-	public static enum uI_sTaTe { INITIALISED, READY, FIXING, COMPLETED };
+	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED };//changed uI_sTaTe to UiState
 
-	private fIX_bOOK_cONTROL CoNtRoL;
-	private Scanner InPuT;
-	private uI_sTaTe StAtE;
+	private FixBookControl control;//changed fIX_bOOK_cONTROL to FixBookControl ,  CoNtRoL to control
+	private Scanner input;// changed InPuT to input
+	private UiState state;//changed uI_sTaTe to UiState, StAtE to state
 
 	
-	public FixBookUI(fIX_bOOK_cONTROL CoNtRoL) {
-		this.CoNtRoL = CoNtRoL;
-		InPuT = new Scanner(System.in);
-		StAtE = uI_sTaTe.INITIALISED;
-		CoNtRoL.SeT_Ui(this);
+	public FixBookUI(FixBookControl control) {//changed fIX_bOOK_cONTROL to FixBookControl ,  CoNtRoL to control
+		this.control = control;//changed  CoNtRoL to control
+		input = new Scanner(System.in);// changed InPuT to input
+		state = UiState.INITIALISED;//changed StAtE to state, uI_sTaTe  to UiState
+		control.setUi(this);// changed CoNtRoL to control, SeT_Uito setUi
 	}
 
 
-	public void SeT_StAtE(uI_sTaTe state) {
-		this.StAtE = state;
+	public void setState(UiState state) {//changed SeT_StAtE to setState, uI_sTaTe TO UiState
+		this.state = state;//changed StAtE to state
 	}
 
 	
-	public void RuN() {
-		OuTpUt("Fix Book Use Case UI\n");
+	public void run() {//changed RuN to run
+		output("Fix Book Use Case UI\n");//changed OuTpUt to output
 		
 		while (true) {
 			
-			switch (StAtE) {
+			switch (StAtE) {// changed StAtE to state
 			
 			case READY:
-				String BoOk_EnTrY_StRiNg = iNpUt("Scan Book (<enter> completes): ");
-				if (BoOk_EnTrY_StRiNg.length() == 0) 
-					CoNtRoL.SCannING_COMplete();
+				String bookEntryString = input("Scan Book (<enter> completes): ");// changed BoOk_EnTrY_StRiNg to bookEntryString, iNpUt to input 
+				if (bookEntryString.length() == 0) // changed BoOk_EnTrY_StRiNg to bookEntryString
+					control.scanningComplete();//changed CoNtRoL to control, SCannING_COMplete to scanningComplete
 				
 				else {
 					try {
-						int BoOk_Id = Integer.valueOf(BoOk_EnTrY_StRiNg).intValue();
-						CoNtRoL.BoOk_ScAnNeD(BoOk_Id);
+						int bookId = Integer.valueOf(bookEntryString).intValue();// changed BoOk_Id to bookId, BoOk_EnTrY_StRiNg to bookEntryString
+						control.bookScanned(bookId);//changed CoNtRoL to control, BoOk_ScAnNeD to bookScanned, BoOk_Id to bookId
 					}
 					catch (NumberFormatException e) {
-						OuTpUt("Invalid bookId");
+						output("Invalid bookId");//changed OuTpUt to output
 					}
 				}
 				break;	
 				
 			case FIXING:
-				String AnS = iNpUt("Fix Book? (Y/N) : ");
-				boolean FiX = false;
-				if (AnS.toUpperCase().equals("Y")) 
-					FiX = true;
+				String ans = input("Fix Book? (Y/N) : ");//changed AnS to ans, iNpUt to input
+				boolean fix = false;// changed FiX to fix
+				if (ans.toUpperCase().equals("Y")) //changed AnS to ans
+					fix = true;//changed FiX to fix
 				
-				CoNtRoL.FiX_BoOk(FiX);
-				break;
+				control.fixBook(fix);//changed CoNtRoL TO control, FiX_BoOk to fixBook, FiX to fix
+	
+				
+					break;
 								
 			case COMPLETED:
-				OuTpUt("Fixing process complete");
+				output("Fixing process complete");// changed OuTpUt to output
 				return;
 			
 			default:
-				OuTpUt("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
+				output("Unhandled state");// changed OuTpUt to output
+				throw new RuntimeException("FixBookUI : unhandled state :" + state);// changed 	StAtEto state		
 			
 			}		
 		}
 		
 	}
 
-	
-	private String iNpUt(String prompt) {
+					
+
+	private String input(String prompt) {// changed iNpUtto input
 		System.out.print(prompt);
-		return InPuT.nextLine();
+		return input.nextLine();//changed InPuT to input
 	}	
 		
 		
-	private void OuTpUt(Object object) {
+	private void output(Object object) {//changed OuTpUt to output
 		System.out.println(object);
 	}
 	
 
-	public void dIsPlAy(Object object) {
-		OuTpUt(object);
+	public void display(Object object) {//changed dIsPlAy to display
+		output(object);//changed OuTpUt to output
 	}
+	
 	
 	
 }
